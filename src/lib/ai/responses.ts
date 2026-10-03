@@ -42,6 +42,7 @@ export function createResponsesCall(
   });
   return {
     result,
+    runIdFetch,
     response: () =>
       withLovableAiGatewayRunIdHeader(result.toUIMessageStreamResponse({ sendReasoning: true }), runIdFetch),
   };

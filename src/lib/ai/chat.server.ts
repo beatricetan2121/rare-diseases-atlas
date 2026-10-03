@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { convertToModelMessages, type UIMessage } from "ai";
 import { diseases, allEdges, getNextSteps } from "@/lib/atlas";
 import { createResponsesCall } from "./responses.ts";
+import { withLovableAiGatewayRunIdHeader } from "./run-id.ts";
 
 async function userClient(request: Request) {
   const token = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
@@ -43,12 +44,12 @@ export async function handleAtlasChat(request: Request) {
     const context = JSON.stringify({ condition: condition ? { name: condition.label, gene: condition.attributes.gene, description: condition.attributes.description } : null, connections: relevantEdges.map(e => ({ explanation: e.plain_explanation, evidence: e.evidence_type, source: e.source_name, contradicted: e.contradicted_by.length > 0, negated: e.negated })), partners: partners.map(p => ({ name: p.name, region: p.region, approach: p.approach, status: p.stage, source: p.sourceUrl })) });
     const key = process.env['LOVABLE_API_KEY'];
     if (!key) return Response.json({ error: "The assistant is not configured yet." }, { status: 503 });
-    const { result, response } = createResponsesCall(request, { baseURL: "https://ai.gateway.lovable.dev/v1", apiKey: key, model: "openai/gpt-6-astra" }, await convertToModelMessages(messages), `You are the Rare Disease Atlas evidence guide for people with no medical background. Answer briefly in everyday language. Explain words as you use them. Current atlas context: ${context}. This atlas uses ILLUSTRATIVE mock biological links, NOT verified citations. Named partner leads have public source URLs but statuses may change. Never present a mock relationship, confidence score, study, contact or treatment as verified or approved. A link between diseases does not mean a treatment transfers. Cite partner source URLs only when present; say when a source is missing. For information outside this context, say you cannot verify it here rather than invent. Do not diagnose or advise treatment; encourage questions for a care team. Do not ask for or repeat personal health or genetic report details. If asked about specific organizations, describe only those present in the context and point to the profile page for outreach.`);
+    const { result, runIdFetch } = createResponsesCall(request, { baseURL: "https://ai.gateway.lovable.dev/v1", apiKey: key, model: "openai/gpt-6-astra" }, await convertToModelMessages(messages), `You are the Rare Disease Atlas evidence guide for people with no medical background. Answer briefly in everyday language. Explain words as you use them. Current atlas context: ${context}. This atlas uses ILLUSTRATIVE mock biological links, NOT verified citations. Named partner leads have public source URLs but statuses may change. Never present a mock relationship, confidence score, study, contact or treatment as verified or approved. A link between diseases does not mean a treatment transfers. Cite partner source URLs only when present; say when a source is missing. For information outside this context, say you cannot verify it here rather than invent. Do not diagnose or advise treatment; encourage questions for a care team. Do not ask for or repeat personal health or genetic report details. If asked about specific organizations, describe only those present in the context and point to the profile page for outreach.`);
     const stream = result.toUIMessageStreamResponse({ originalMessages: messages, sendReasoning: false, onFinish: async ({ messages: completed }) => {
       const { error } = await auth.client.from("atlas_conversations").upsert({ user_id: auth.userId, messages: completed as never }, { onConflict: "user_id" });
       if (error) console.error("Could not save completed atlas conversation", error.message);
     }, onError: error => error instanceof Error ? error.message : "The assistant could not finish the answer." });
-    return response ? await (await import("./run-id.ts")).withLovableAiGatewayRunIdHeader(stream, { getRunId: () => undefined, waitForRunId: async () => undefined }) : stream;
+    return withLovableAiGatewayRunIdHeader(stream, runIdFetch);
   } catch (error) {
     if (request.signal.aborted) return new Response(null, { status: 499 });
     console.error("Atlas chat error", error);
