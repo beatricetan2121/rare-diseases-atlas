@@ -2,4 +2,5 @@
 - [x] Fit the mechanism cluster into one viewport and add restrained motion.
 - [x] Stage 2: Show sourced Type C partners, public contacts, regions, treatment focus, and editable outreach from the disease profile.
 - [x] Bring partner actions into the graph’s selected-condition panel.
+- [x] Explain graph connections inline and open evidence by double-click.
 - [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).
