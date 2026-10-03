@@ -11,3 +11,5 @@
 
 - Keep atlas mock records in local JSON and access them through `src/lib/atlas.ts`, so a later data source can replace the mock without rewriting screens.
 - Keep the atlas background and persona context in the root shell, so navigation preserves their state and visual continuity.
+- Keep the evidence assistant server-side and persist its single per-user conversation behind owner-only access, so private questions remain private across devices.
+- Keep organization links distinct from biological links in the atlas, so outreach opportunities cannot be mistaken for treatment evidence.
