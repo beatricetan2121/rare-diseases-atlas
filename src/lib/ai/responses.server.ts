@@ -1,5 +1,5 @@
 import { createOpenAI } from "@ai-sdk/openai";
-import { streamText, type ModelMessage } from "ai";
+import { streamText, type ModelMessage, type UIMessage } from "ai";
 
 import {
   createLovableAiGatewayRunIdFetch,
@@ -40,7 +40,7 @@ export function createResponsesCall(
   });
   return {
     result,
-    response: () =>
-      withLovableAiGatewayRunIdHeader(result.toUIMessageStreamResponse({ sendReasoning: true }), runIdFetch),
+    response: (options?: { originalMessages: UIMessage[]; onFinish: (event: { messages: UIMessage[] }) => Promise<void> }) =>
+      withLovableAiGatewayRunIdHeader(result.toUIMessageStreamResponse({ sendReasoning: true, ...options }), runIdFetch),
   };
 }
