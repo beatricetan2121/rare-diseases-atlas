@@ -10,15 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChatRouteImport } from './routes/chat'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as WhoRouteImport } from './routes/who'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AtlasIdRouteImport } from './routes/atlas.$id'
+import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 import { Route as DiseaseIdRouteImport } from './routes/disease.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SearchRoute = SearchRouteImport.update({
@@ -41,6 +48,11 @@ const AtlasIdRoute = AtlasIdRouteImport.update({
   path: '/atlas/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatThreadIdRoute = ChatThreadIdRouteImport.update({
+  id: '/$threadId',
+  path: '/$threadId',
+  getParentRoute: () => ChatRoute,
+} as any)
 const DiseaseIdRoute = DiseaseIdRouteImport.update({
   id: '/disease/$id',
   path: '/disease/$id',
@@ -49,47 +61,71 @@ const DiseaseIdRoute = DiseaseIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRouteWithChildren
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
+  '/chat/$threadId': typeof ChatThreadIdRoute
   '/disease/$id': typeof DiseaseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRouteWithChildren
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
+  '/chat/$threadId': typeof ChatThreadIdRoute
   '/disease/$id': typeof DiseaseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chat': typeof ChatRouteWithChildren
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
+  '/chat/$threadId': typeof ChatThreadIdRoute
   '/disease/$id': typeof DiseaseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/search' | '/who' | '/api/chat' | '/atlas/$id' | '/disease/$id'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/search' | '/who' | '/api/chat' | '/atlas/$id' | '/disease/$id'
-  id:
-    | '__root__'
     | '/'
+    | '/chat'
     | '/search'
     | '/who'
     | '/api/chat'
     | '/atlas/$id'
+    | '/chat/$threadId'
+    | '/disease/$id'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/chat'
+    | '/search'
+    | '/who'
+    | '/api/chat'
+    | '/atlas/$id'
+    | '/chat/$threadId'
+    | '/disease/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/chat'
+    | '/search'
+    | '/who'
+    | '/api/chat'
+    | '/atlas/$id'
+    | '/chat/$threadId'
     | '/disease/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatRoute: typeof ChatRouteWithChildren
   SearchRoute: typeof SearchRoute
   WhoRoute: typeof WhoRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -104,6 +140,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/search': {
@@ -134,6 +177,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtlasIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat/$threadId': {
+      id: '/chat/$threadId'
+      path: '/$threadId'
+      fullPath: '/chat/$threadId'
+      preLoaderRoute: typeof ChatThreadIdRouteImport
+      parentRoute: typeof ChatRoute
+    }
     '/disease/$id': {
       id: '/disease/$id'
       path: '/disease/$id'
@@ -144,8 +194,19 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ChatRouteChildren {
+  ChatThreadIdRoute: typeof ChatThreadIdRoute
+}
+
+const ChatRouteChildren: ChatRouteChildren = {
+  ChatThreadIdRoute: ChatThreadIdRoute,
+}
+
+const ChatRouteWithChildren = ChatRoute._addFileChildren(ChatRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatRoute: ChatRouteWithChildren,
   SearchRoute: SearchRoute,
   WhoRoute: WhoRoute,
   ApiChatRoute: ApiChatRoute,

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, CircleAlert, Info, Layers3, List, Network, Search as SearchIcon, Users, X, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, CircleAlert, Info, Layers3, List, Network, Search as SearchIcon, Users, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAtlas, personaLabels } from "@/components/atlas/atlas-shell";
 import { EvidenceDrawer } from "@/components/atlas/evidence-drawer";

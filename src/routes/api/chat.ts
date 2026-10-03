@@ -30,7 +30,7 @@ export const Route = createFileRoute("/api/chat")({
         { role: "system", content: `You are the Rare Disease Atlas research guide. Explain only the supplied chart records, in clear, professional language. Distinguish curated, AI-extracted, inferred and caution links; explain dashed lines as AI-extracted, dotted as inferred. Never invent evidence, medicines, contacts, trials or real-time information. If not in the supplied data, say so. This is illustrative and not medical advice. Focus on the current condition. Chart context: ${await atlasContext(diseaseId)}` },
         ...modelMessages,
       ]);
-      return await call.response({ originalMessages: conversation, sendReasoning: true, onFinish: async ({ messages: completed }) => {
+      return await call.response({ originalMessages: conversation, onFinish: async ({ messages: completed }) => {
         const { error: persistError } = await auth.supabase.from("atlas_conversations").update({ messages: completed as Json }).eq("id", id).eq("user_id", auth.userId);
         if (persistError) console.error("Atlas conversation save failed", persistError);
       } });
