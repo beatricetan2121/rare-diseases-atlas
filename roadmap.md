@@ -1,4 +1,4 @@
 - [x] Stage 1: White scientific design, home, roles, search, atlas, evidence and gap state.
-- [x] Current: Fit the mechanism cluster into one viewport like the supplied reference; add restrained cluster motion.
-- [ ] Stage 2: Disease detail, people and outreach draft (awaiting stage 1 review).
+- [x] Fit the mechanism cluster into one viewport and add restrained motion.
+- [ ] Current: Show relevant partners, contacts, regions, treatment focus, and editable outreach from the disease profile.
 - [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).
