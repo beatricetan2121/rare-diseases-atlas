@@ -2,4 +2,7 @@
 - [x] Fit the mechanism cluster into one viewport and add restrained motion.
 - [x] Stage 2: Show sourced Type C partners, public contacts, regions, treatment focus, and editable outreach from the disease profile.
 - [x] Bring partner actions into the graph’s selected-condition panel.
+- [x] Add an evidence-aware assistant with one conversation saved only in this browser.
+- [x] Shorten atlas header, clarify links between dots, add organization connections and double-click outreach.
+- [x] Simplify atlas language and verify desktop/mobile interactions.
 - [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).
