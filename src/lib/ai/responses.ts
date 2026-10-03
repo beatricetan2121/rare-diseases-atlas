@@ -24,7 +24,7 @@ export function createResponsesCall(
   const result = streamText({
     model: provider.responses(config.model),
     messages,
-    system,
+    ...(system ? { system } : {}),
     abortSignal: request.signal,
     providerOptions: {
       openai: {
