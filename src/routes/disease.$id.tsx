@@ -37,11 +37,7 @@ function DiseasePage() {
     setPartners([]);
     setSelectedId("");
     getNextSteps(id, persona).then((items) => {
-      if (active) { setPartners(items); setLoading(false);
-        const requested = new URLSearchParams(window.location.search).get("partner");
-        const partner = items.find((entry) => entry.id === requested);
-        if (partner) selectPartner(partner);
-      }
+      if (active) { setPartners(items); setLoading(false); }
     });
     return () => { active = false; };
   }, [id, persona]);

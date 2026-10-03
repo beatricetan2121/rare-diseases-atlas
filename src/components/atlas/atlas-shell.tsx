@@ -63,8 +63,8 @@ export function AtlasShell({ children }: { children: ReactNode }) {
     <div className={`app-frame ${path.startsWith("/atlas/") ? "atlas-page" : ""}`}>
       <header className="site-header">
         <Link to="/" className="brand" aria-label="Rare Disease Atlas home"><span className="brand-symbol"><Activity size={20} strokeWidth={1.7}/></span><span>rare disease <strong>atlas</strong></span></Link>
-        <nav className="top-nav" aria-label="Main navigation"><Link to="/who" search={{ as: persona } as never}>How it works</Link><Link to="/search" search={{ as: persona } as never}>Explore</Link></nav>
-        <Button asChild size="sm" variant="outline" className="header-action"><Link to="/search" search={{ as: persona } as never}>Search <ArrowUpRight size={15}/></Link></Button>
+        <nav className="top-nav" aria-label="Main navigation"><Link to="/who" search={{ as: persona } as never}>How it works</Link><Link to="/search" search={{ as: persona } as never}>Explore the atlas</Link></nav>
+        <Button asChild size="sm" variant="outline" className="header-action"><Link to="/search" search={{ as: persona } as never}>Start exploring <ArrowUpRight size={15}/></Link></Button>
       </header>
       <main className={path === "/" ? "home-main" : "page-main"}>{children}</main>
       <footer className="site-footer"><span>RARE DISEASE ATLAS <span className="footer-divider">/</span> DEMONSTRATION DATA</span><span>Research navigation tool, not medical advice. Discuss any next step with your care team.</span></footer>

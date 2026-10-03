@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as WhoRouteImport } from './routes/who'
-import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AtlasIdRouteImport } from './routes/atlas.$id'
 import { Route as DiseaseIdRouteImport } from './routes/disease.$id'
 
@@ -31,11 +30,6 @@ const WhoRoute = WhoRouteImport.update({
   path: '/who',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiChatRoute = ApiChatRouteImport.update({
-  id: '/api/chat',
-  path: '/api/chat',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AtlasIdRoute = AtlasIdRouteImport.update({
   id: '/atlas/$id',
   path: '/atlas/$id',
@@ -51,7 +45,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
-  '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
   '/disease/$id': typeof DiseaseIdRoute
 }
@@ -59,7 +52,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
-  '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
   '/disease/$id': typeof DiseaseIdRoute
 }
@@ -68,31 +60,21 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
-  '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
   '/disease/$id': typeof DiseaseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/search' | '/who' | '/api/chat' | '/atlas/$id' | '/disease/$id'
+  fullPaths: '/' | '/search' | '/who' | '/atlas/$id' | '/disease/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/search' | '/who' | '/api/chat' | '/atlas/$id' | '/disease/$id'
-  id:
-    | '__root__'
-    | '/'
-    | '/search'
-    | '/who'
-    | '/api/chat'
-    | '/atlas/$id'
-    | '/disease/$id'
+  to: '/' | '/search' | '/who' | '/atlas/$id' | '/disease/$id'
+  id: '__root__' | '/' | '/search' | '/who' | '/atlas/$id' | '/disease/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SearchRoute: typeof SearchRoute
   WhoRoute: typeof WhoRoute
-  ApiChatRoute: typeof ApiChatRoute
   AtlasIdRoute: typeof AtlasIdRoute
   DiseaseIdRoute: typeof DiseaseIdRoute
 }
@@ -120,13 +102,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/chat': {
-      id: '/api/chat'
-      path: '/api/chat'
-      fullPath: '/api/chat'
-      preLoaderRoute: typeof ApiChatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/atlas/$id': {
       id: '/atlas/$id'
       path: '/atlas/$id'
@@ -148,7 +123,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SearchRoute: SearchRoute,
   WhoRoute: WhoRoute,
-  ApiChatRoute: ApiChatRoute,
   AtlasIdRoute: AtlasIdRoute,
   DiseaseIdRoute: DiseaseIdRoute,
 }
