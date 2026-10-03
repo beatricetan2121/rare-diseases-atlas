@@ -252,3 +252,5 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
   .network-legend { flex-wrap: wrap; font-size: 9px; }
   .detail-panel { padding: 18px; }
 }
+.detail-panel .edge-explanation > button { height: auto; min-height: 28px; padding: 3px 0; white-space: normal; text-align: left; justify-content: flex-start; line-height: 1.3; font-size: 11px; }
+@media (max-width: 600px) { .atlas-sidebar { flex-wrap: wrap; } .cluster-list { flex-basis: 100%; order: 2; } .persona-switch { order: 1; margin-left: auto; } .cluster-heading { display: block; order: 0; } }
