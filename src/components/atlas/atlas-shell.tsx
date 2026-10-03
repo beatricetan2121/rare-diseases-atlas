@@ -38,7 +38,7 @@ function ScientificField() {
       if (!atlas) {
         const points = diseases.slice(0, 10).map((_, i) => ({ x: cx + Math.cos(i * 2.4) * (70 + (i % 4) * 50), y: cy + Math.sin(i * 2.4) * (35 + (i % 4) * 45) }));
         ctx.strokeStyle = "rgba(23, 111, 120, .12)"; ctx.lineWidth = 1;
-        [[0,1],[0,2],[0,3],[1,4],[3,5],[5,7],[7,8],[8,9]].forEach(([a,b]) => { ctx.beginPath(); ctx.moveTo(points[a].x,points[a].y); ctx.lineTo(points[b].x,points[b].y); ctx.stroke(); });
+        [[0,1],[0,2],[0,3],[1,4],[3,5],[5,7],[7,8],[8,9]].forEach(([a,b]) => { const start = points[a ?? -1]; const end = points[b ?? -1]; if (!start || !end) return; ctx.beginPath(); ctx.moveTo(start.x,start.y); ctx.lineTo(end.x,end.y); ctx.stroke(); });
         points.forEach((p,i) => { ctx.beginPath(); ctx.arc(p.x,p.y,i===0 ? 8 : 3.5,0,Math.PI*2); ctx.fillStyle = i===0 ? "rgba(15, 113, 119, .35)" : "rgba(15, 113, 119, .22)"; ctx.fill(); });
       }
       frame++;

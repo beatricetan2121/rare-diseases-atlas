@@ -19,7 +19,7 @@ export async function searchEntities(query: string) {
   const q = query.trim().toLowerCase();
   if (!q) return [];
   const terms = q.split(/\s+/).filter((t) => t.length > 2);
-  return diseases.filter((n) => [n.label, n.plain_label, n.attributes.gene, ...n.synonyms].some((s) => s.toLowerCase().includes(q)) || (terms.length > 1 && terms.every((t) => [n.label, ...n.synonyms].some((s) => s.toLowerCase().includes(t)))) || (q === "enzyme replacement" && n.cluster === "lysosomal") || (q === "gene therapy" && n.cluster === "waste"));
+  return diseases.filter((n) => [n.label, n.plain_label, n.attributes.gene, ...n.synonyms].some((s) => typeof s === "string" && s.toLowerCase().includes(q)) || (terms.length > 1 && terms.every((t) => [n.label, ...n.synonyms].some((s) => s.toLowerCase().includes(t)))) || (q === "enzyme replacement" && n.cluster === "lysosomal") || (q === "gene therapy" && n.cluster === "waste"));
 }
 export async function getDiseaseProfile(id: string) { await pause(); return diseases.find((n) => n.id === id) ?? null; }
 export async function getPatientGroups(id: string) { await pause(); return diseases.find((n) => n.id === id)?.attributes.patient_group ?? ""; }
