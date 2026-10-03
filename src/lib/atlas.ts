@@ -1,10 +1,12 @@
 import rawNodes from "@/data/nodes.json";
 import rawEdges from "@/data/edges.json";
+import rawPartners from "@/data/partners.json";
 
 export type Persona = "maria" | "devon" | "priya" | "osei";
 export type Node = (typeof rawNodes)[number];
 export type Edge = (typeof rawEdges)[number];
 export type Disease = Node & { type: "disease" };
+export type Partner = (typeof rawPartners)[number];
 const nodes = rawNodes as Node[];
 const edges = rawEdges as Edge[];
 const pause = () => new Promise<void>((resolve) => setTimeout(resolve, 180));
@@ -27,9 +29,9 @@ export async function getGraph(focusId: string, _persona: Persona) { await pause
 export async function getSimilarDiseases(id: string, _persona: Persona) { await pause(); return edgesFor(id).filter((e) => !e.negated).map((e) => diseases.find((n) => n.id === (e.source === id ? e.target : e.source))).filter((n): n is Disease => Boolean(n)); }
 export async function getConnectionPath(fromId: string, toId: string) { await pause(); return edges.filter((e) => [e.source, e.target].includes(fromId) && [e.source, e.target].includes(toId)); }
 export async function getClusterAssets(_id: string) { await pause(); return []; }
-export async function getNextSteps(_id: string, _persona: Persona) { await pause(); return []; }
+export async function getNextSteps(id: string, _persona: Persona) { await pause(); return rawPartners.filter((partner) => partner.diseaseId === id); }
 export async function getFasterRoute(_id: string) { await pause(); return null; }
 export async function rankClustersByApproach(_approachId: string) { await pause(); return clusters; }
-export async function getPeople(_id: string) { await pause(); return []; }
+export async function getPeople(id: string) { await pause(); return rawPartners.filter((partner) => partner.diseaseId === id); }
 export async function getEvidence(edgeIds: string[]) { await pause(); return edges.filter((e) => edgeIds.includes(e.id)); }
 export async function getSearchCoverage(query: string) { await pause(); return { query, sources: ["PubMed", "ClinicalTrials.gov", "HPO", "Orphanet"].map((name) => ({ name, result: "Not connected in this demo" })) }; }
