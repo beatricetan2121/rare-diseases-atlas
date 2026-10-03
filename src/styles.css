@@ -131,3 +131,20 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 .outreach-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 18px; }.outreach-actions button { border-radius: 2px; }.outreach-actions span { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ink-soft); }
 @media (max-width: 1000px) { .partner-record { grid-template-columns: 34px minmax(0,1fr) minmax(0,1.2fr); }.partner-contact { grid-column: 2 / -1; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 7px 18px; }.partner-contact .field-label { width: 100%; }.partner-contact button { margin: 0 0 0 auto; } }
 @media (max-width: 600px) { .partner-page { padding-top: 29px; }.partner-page h1 { font-size: 42px; overflow-wrap: anywhere; }.partner-heading { margin-top: 44px; align-items: flex-start; flex-direction: column; gap: 15px; }.partner-heading h2,.outreach-heading h2 { font-size: 26px; }.partner-record { grid-template-columns: 29px minmax(0,1fr); gap: 13px; padding: 23px 0; }.partner-research,.partner-contact { grid-column: 2; }.partner-contact { flex-direction: column; align-items: flex-start; }.partner-contact button { margin: 8px 0 0; }.outreach-section { margin-top: 45px; }.outreach-recipient { align-items: flex-start; flex-direction: column; }.outreach-form textarea { min-height: 310px; } }
+
+/* Keep the selected condition's biological evidence and patient actions in one inspection panel. */
+.panel-tabs { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); padding: 3px; gap: 2px; margin: 16px 0 18px; }
+.panel-tabs button { min-width: 0; height: auto; min-height: 32px; padding: 5px 3px; border-radius: 2px; white-space: normal; font-size: 11px; line-height: 1.25; }
+.panel-tabs button[aria-selected="true"] { color: var(--primary); font-weight: 750; }
+.panel-next-steps h3 { font-size: 16px; line-height: 1.25; margin: 9px 0 6px; }
+.panel-action-intro { font-size: 11px; line-height: 1.55; color: var(--ink-soft); }
+.panel-partner-list { border-top: 1px solid var(--border); margin-top: 15px; }
+.panel-partner { border-bottom: 1px solid var(--border); padding: 13px 0; }
+.panel-partner .field-label { font-size: 9px; line-height: 1.4; margin-bottom: 6px; }
+.panel-partner strong { display: block; font-size: 12px; line-height: 1.35; }
+.panel-partner small { display: block; color: var(--muted-foreground); font-size: 10px; margin-top: 3px; }
+.panel-partner p { color: var(--ink-soft); font-size: 10px; line-height: 1.5; margin: 8px 0 5px; }
+.panel-contact { font-size: 10px; font-weight: 650; color: var(--primary); }
+.panel-partner-cta { width: 100%; height: auto; min-height: 35px; white-space: normal; text-align: left; margin-top: 16px; font-size: 11px; }
+@media (max-width: 850px) { .panel-tabs button { font-size: 9px; } .panel-next-steps h3 { font-size: 13px; } }
+@media (max-width: 600px) { .panel-tabs button { font-size: 12px; } .panel-next-steps h3 { font-size: 17px; } }
