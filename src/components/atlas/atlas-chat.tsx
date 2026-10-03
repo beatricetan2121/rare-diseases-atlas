@@ -45,14 +45,15 @@ export function AtlasChat({ threadId, diseaseId }: { threadId?: string; diseaseI
     if (!user || !threadId) return;
     let active = true;
     setMessages(null); setError("");
-    getAtlasConversation({ data: { id: threadId } }).then((result) => { if (active) setMessages(result.messages); }).catch(() => { if (active) setError("This conversation could not be opened."); });
+    getAtlasConversation({ data: { id: threadId } }).then((result) => { if (active) setMessages(result.messages as unknown as UIMessage[]); }).catch(() => { if (active) setError("This conversation could not be opened."); });
     return () => { active = false; };
   }, [threadId, user]);
 
   async function newConversation() {
     setBusy(true); setError("");
     try {
-      const { id } = await createAtlasConversation();
+      const result = await createAtlasConversation();
+      const id = result.id;
       setThreads((current) => [{ id, title: "New conversation", updatedAt: new Date().toISOString() }, ...current]);
       await navigate({ to: "/chat/$threadId", params: { threadId: id }, search: { diseaseId } });
     } catch { setError("Could not create a conversation."); }

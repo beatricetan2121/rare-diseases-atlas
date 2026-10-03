@@ -17,10 +17,10 @@ export const Route = createFileRoute("/api/chat")({
     if (latest?.role !== "user" || !latest.parts.some((p) => p.type === "text" && p.text.trim().length > 0 && p.text.length <= 4000)) return Response.json({ message: "Enter a question of up to 4,000 characters." }, { status: 400 });
     const { data: row, error } = await auth.supabase.from("atlas_conversations").select("messages").eq("id", id).eq("user_id", auth.userId).single();
     if (error || !row) return Response.json({ message: "Conversation not found." }, { status: 404 });
-    const saved = Array.isArray(row.messages) ? row.messages as UIMessage[] : [];
+    const saved = Array.isArray(row.messages) ? row.messages as unknown as UIMessage[] : [];
     // The browser supplies only the new question; saved history is authoritative.
     const conversation = [...saved, { id: latest.id, role: "user" as const, parts: latest.parts.filter((p) => p.type === "text") }];
-    const { error: saveError } = await auth.supabase.from("atlas_conversations").update({ messages: conversation as Json }).eq("id", id).eq("user_id", auth.userId);
+    const { error: saveError } = await auth.supabase.from("atlas_conversations").update({ messages: conversation as unknown as Json }).eq("id", id).eq("user_id", auth.userId);
     if (saveError) return Response.json({ message: "Could not save your question." }, { status: 500 });
     const apiKey = process.env['LOVABLE_API_KEY'];
     if (!apiKey) return Response.json({ message: "The atlas assistant is not configured." }, { status: 503 });
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/api/chat")({
         ...modelMessages,
       ]);
       return await call.response({ originalMessages: conversation, onFinish: async ({ messages: completed }) => {
-        const { error: persistError } = await auth.supabase.from("atlas_conversations").update({ messages: completed as Json }).eq("id", id).eq("user_id", auth.userId);
+        const { error: persistError } = await auth.supabase.from("atlas_conversations").update({ messages: completed as unknown as Json }).eq("id", id).eq("user_id", auth.userId);
         if (persistError) console.error("Atlas conversation save failed", persistError);
       } });
     } catch (cause) {

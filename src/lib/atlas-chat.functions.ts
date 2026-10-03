@@ -10,7 +10,7 @@ export const listAtlasConversations = createServerFn({ method: "GET" })
       .order("updated_at", { ascending: false });
     if (error) throw error;
     return (data ?? []).map((row) => {
-      const messages = Array.isArray(row.messages) ? row.messages as UIMessage[] : [];
+      const messages = Array.isArray(row.messages) ? row.messages as unknown as UIMessage[] : [];
       const first = messages.find((message) => message.role === "user")?.parts.find((part) => part.type === "text");
       return { id: row.id, title: first?.type === "text" ? first.text.slice(0, 54) : "New conversation", updatedAt: row.updated_at };
     });
@@ -33,5 +33,5 @@ export const getAtlasConversation = createServerFn({ method: "POST" })
     const { data: row, error } = await context.supabase.from("atlas_conversations")
       .select("messages").eq("id", data.id).eq("user_id", context.userId).single();
     if (error) throw error;
-    return { messages: Array.isArray(row.messages) ? row.messages as UIMessage[] : [] };
+    return { messages: Array.isArray(row.messages) ? row.messages : [] };
   });
