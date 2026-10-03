@@ -21,7 +21,8 @@
     "witnesses": [
       "mps-iiic",
       "mps-iiia"
-    ]
+    ],
+    "relationship_label": "Shared clearance pathway"
   },
   {
     "id": "e-iiic-iiib",
@@ -45,7 +46,8 @@
     "witnesses": [
       "mps-iiic",
       "mps-iiib"
-    ]
+    ],
+    "relationship_label": "Neighboring enzyme steps"
   },
   {
     "id": "e-iiic-iiid",
@@ -69,7 +71,8 @@
     "witnesses": [
       "mps-iiic",
       "mps-iiid"
-    ]
+    ],
+    "relationship_label": "Shared Sanfilippo pathway"
   },
   {
     "id": "e-iiia-iiib",
@@ -93,7 +96,8 @@
     "witnesses": [
       "mps-iiia",
       "mps-iiib"
-    ]
+    ],
+    "relationship_label": "Shared biochemical pathway"
   },
   {
     "id": "e-iiia-msd",
@@ -117,7 +121,8 @@
     "witnesses": [
       "mps-iiia",
       "msd"
-    ]
+    ],
+    "relationship_label": "Sulfatase activation"
   },
   {
     "id": "e-iiid-msd",
@@ -141,7 +146,8 @@
     "witnesses": [
       "mps-iiid",
       "msd"
-    ]
+    ],
+    "relationship_label": "Sulfatase activation · inferred"
   },
   {
     "id": "e-msd-mpsii",
@@ -165,7 +171,8 @@
     "witnesses": [
       "msd",
       "mps-ii"
-    ]
+    ],
+    "relationship_label": "Sulfatase biology"
   },
   {
     "id": "e-mpsi-mpsii",
@@ -189,7 +196,8 @@
     "witnesses": [
       "mps-i",
       "mps-ii"
-    ]
+    ],
+    "relationship_label": "Lysosomal storage"
   },
   {
     "id": "e-mpsii-mpsvii",
@@ -213,7 +221,8 @@
     "witnesses": [
       "mps-ii",
       "mps-vii"
-    ]
+    ],
+    "relationship_label": "Lysosomal pathway"
   },
   {
     "id": "e-iiic-rett",
@@ -239,7 +248,8 @@
     "witnesses": [
       "mps-iiic",
       "rett"
-    ]
+    ],
+    "relationship_label": "Symptom overlap only"
   },
   {
     "id": "e-rett-counter",
@@ -263,7 +273,8 @@
     "witnesses": [
       "rett",
       "mps-iiic"
-    ]
+    ],
+    "relationship_label": "Different biological cause"
   },
   {
     "id": "e-rett-dup",
@@ -287,6 +298,7 @@
     "witnesses": [
       "rett",
       "mecp2-dup"
-    ]
+    ],
+    "relationship_label": "Opposite gene dosage"
   }
 ]
