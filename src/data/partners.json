@@ -1,0 +1,47 @@
+[
+  {
+    "id": "phoenix-nest",
+    "diseaseId": "mps-iiic",
+    "name": "Phoenix Nest",
+    "kind": "Therapeutics developer",
+    "region": "United States · Brooklyn, New York",
+    "contactName": "Jill Wood",
+    "email": "jwood@phoenixnestbiotech.com",
+    "approach": "JLK-247 · experimental AAV9 gene replacement targeting HGSNAT in MPS IIIC. Also runs a Type C natural-history study (JLK-447).",
+    "stage": "Experimental / research-stage",
+    "sourceLabel": "Phoenix Nest pipeline",
+    "sourceUrl": "https://www.phoenixnestbiotech.com/pipeline",
+    "contactSourceUrl": "https://www.phoenixnestbiotech.com/jlk-447",
+    "question": "What is the current development status of JLK-247, and are there ways for families or researchers to connect with the Type C natural-history work?"
+  },
+  {
+    "id": "cure-sanfilippo",
+    "diseaseId": "mps-iiic",
+    "name": "Cure Sanfilippo Foundation",
+    "kind": "Family and research navigator",
+    "region": "United States · supports international inquiries",
+    "contactName": "Research navigation team",
+    "email": "Contact@CureSanfilippoFoundation.org",
+    "approach": "Helps families navigate Sanfilippo research and connect with study teams; has supported Type C gene-therapy research. Not a medicine developer.",
+    "stage": "Family support / research navigation",
+    "sourceLabel": "Clinical studies information (PDF)",
+    "sourceUrl": "https://curesanfilippofoundation.org/wp-content/uploads/2026/01/Clinical-Studies-Info-CureSanfilippoFoundation-010626-Final.pdf",
+    "contactSourceUrl": "https://curesanfilippofoundation.org/wp-content/uploads/2026/01/Clinical-Studies-Info-CureSanfilippoFoundation-010626-Final.pdf",
+    "question": "Could you point us toward current MPS IIIC natural-history studies, research contacts, and appropriate family resources?"
+  },
+  {
+    "id": "sanfilippo-childrens",
+    "diseaseId": "mps-iiic",
+    "name": "Sanfilippo Children’s Foundation",
+    "kind": "Research funder",
+    "region": "Australia · research collaboration with Manchester, UK",
+    "contactName": "Foundation team",
+    "email": "info@sanfilippo.org.au",
+    "approach": "Funded research on improving brain delivery of gene therapy for Type C; not a marketed treatment or active clinical offer.",
+    "stage": "Preclinical research support",
+    "sourceLabel": "Type C funded research project",
+    "sourceUrl": "https://www.sanfilippo.org.au/research/funded-projects/improving-delivery-of-gene-therapy-to-brain-for-sanfilippo-type-c",
+    "contactSourceUrl": "https://www.sanfilippo.org.au/privacy-policy",
+    "question": "Is the Type C brain-delivery research still active, and whom should interested families or collaborators contact for an update?"
+  }
+]
