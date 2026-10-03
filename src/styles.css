@@ -155,7 +155,7 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 .atlas-layout { height: calc(100dvh - 104px); }
 .atlas-toolbar { min-height: 80px; }
 .atlas-toolbar h1 { margin: 3px 0; }
-.network-lines { z-index: 1; }
+.network-lines { z-index: 1; animation: none; }
 .graph-edge { stroke-width: 2.5px; stroke-opacity: .68; }
 .graph-edge:hover { stroke-width: 5px; }
 .partner-edge { stroke: var(--violet); stroke-width: 1.5px; stroke-dasharray: 4 5; stroke-opacity: .55; vector-effect: non-scaling-stroke; }
