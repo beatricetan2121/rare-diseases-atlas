@@ -11,3 +11,5 @@
 
 - Keep atlas mock records in local JSON and access them through `src/lib/atlas.ts`, so a later data source can replace the mock without rewriting screens.
 - Keep the atlas background and persona context in the root shell, so navigation preserves their state and visual continuity.
+
+- Store short map relationship labels with each mock edge record, so in-graph summaries and evidence descriptions stay tied to the same data source.

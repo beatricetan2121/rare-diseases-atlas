@@ -148,3 +148,24 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 .panel-partner-cta { width: 100%; height: auto; min-height: 35px; white-space: normal; text-align: left; margin-top: 16px; font-size: 11px; }
 @media (max-width: 850px) { .panel-tabs button { font-size: 9px; } .panel-next-steps h3 { font-size: 13px; } }
 @media (max-width: 600px) { .panel-tabs button { font-size: 12px; } .panel-next-steps h3 { font-size: 17px; } }
+
+/* Inline relationship captions keep the map readable before evidence is opened. */
+.graph-connection .graph-edge { pointer-events: none; }
+.graph-edge-hit { stroke: transparent; stroke-width: 18px; vector-effect: non-scaling-stroke; cursor: pointer; }
+.graph-connection:hover .graph-edge, .graph-connection:focus-within .graph-edge, .graph-connection.inspected .graph-edge { stroke-opacity: 1; stroke-width: 3px; }
+.graph-edge-hit:focus-visible { stroke: var(--ring); stroke-opacity: .25; outline: none; }
+.graph-edge-label { position: absolute; z-index: 3; transform: translate(-50%,-50%); width: max-content; max-width: 102px; height: auto; min-height: 22px; padding: 3px 5px; white-space: normal; text-align: center; line-height: 1.15; font-size: 9px; font-weight: 650; color: var(--primary); background: var(--background); border: 1px solid var(--border); box-shadow: 0 1px 4px color-mix(in oklab,var(--foreground) 7%,transparent); }
+.graph-edge-label:hover,.graph-edge-label.active { color: var(--foreground); background: var(--secondary); border-color: var(--primary); }
+.graph-edge-label.caution { color: var(--foreground); border-color: var(--warning); }
+.edge-explanation { position: absolute; right: 12px; bottom: 12px; z-index: 6; width: min(295px,calc(100% - 24px)); padding: 12px 14px; background: var(--card); border: 1px solid var(--primary); box-shadow: 0 8px 26px color-mix(in oklab,var(--foreground) 12%,transparent); }
+.edge-explanation-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.edge-explanation-top .eyebrow { font-size: 9px; }
+.edge-explanation-top button { width: 24px; height: 24px; }
+.edge-explanation > strong { display: block; font-size: 12px; line-height: 1.3; }
+.edge-relation { display: flex; align-items: center; gap: 6px; margin: 7px 0; font-size: 10px; color: var(--ink-soft); }
+.edge-relation .line-sample { width: 17px; }
+.edge-explanation p { margin: 0 0 5px; font-size: 11px; line-height: 1.45; color: var(--ink-soft); }
+.edge-explanation .edge-caution { color: var(--destructive); }
+.edge-explanation > button { height: auto; padding: 3px 0 0; font-size: 11px; }
+@media (max-width: 850px) { .graph-edge-label { max-width: 68px; font-size: 8px; padding: 2px; } .edge-explanation { width: min(235px,calc(100% - 16px)); right: 8px; bottom: 8px; padding: 9px; } .network-scale { display: none; } }
+@media (max-width: 600px) { .graph-edge-label { max-width: 75px; } .edge-explanation { width: min(290px,calc(100% - 20px)); } }
