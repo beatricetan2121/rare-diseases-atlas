@@ -1,6 +1,13 @@
 import { createStart, createCsrfMiddleware, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
+import { createMiddleware as createClientMiddleware } from "@tanstack/react-start";
+import { supabase } from "@/integrations/supabase/client";
+
+const attachChatAuth = createClientMiddleware({ type: "function" }).client(async ({ next }) => {
+  const { data } = await supabase.auth.getSession();
+  return next({ headers: data.session ? { Authorization: `Bearer ${data.session.access_token}` } : {} });
+});
 
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
   try {
@@ -26,4 +33,5 @@ const csrfMiddleware = createCsrfMiddleware({
 
 export const startInstance = createStart(() => ({
   requestMiddleware: [errorMiddleware, csrfMiddleware],
+  functionMiddleware: [attachChatAuth],
 }));

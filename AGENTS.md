@@ -13,3 +13,4 @@
 - Keep the atlas background and persona context in the root shell, so navigation preserves their state and visual continuity.
 
 - Store short map relationship labels with each mock edge record, so in-graph summaries and evidence descriptions stay tied to the same data source.
+- Keep atlas assistant model calls on the server and persist conversations under the signed-in user's account, so private history and credentials remain isolated.
