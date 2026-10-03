@@ -263,8 +263,6 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 .atlas-assistant-launcher a { border-radius: 2px; font-size: 11px; }
 
 /* Restrict inline labels to the selected link so surrounding disease names stay legible. */
-.network-stage .graph-edge-label:not(.active) { display: none; }
-.network-stage .graph-edge-label.active { max-width: 160px; font-size: 10px; z-index: 1; }
 .graph-node { z-index: 4; }
 .graph-node:hover { z-index: 5; }
 .network-caption { pointer-events: none; }
