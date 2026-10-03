@@ -89,3 +89,7 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
   .node-name small { font-size: 7px; }
   .graph-node.cluster-lysosomal:nth-of-type(5) .node-name { transform: translateX(-10px); }
 }
+@media (min-width: 601px) and (max-width: 850px) {
+  .atlas-page .site-footer { height: 34px; min-height: 34px; padding: 4px 10px; justify-content: center; }
+  .atlas-page .site-footer > span:first-child { display: none; }
+}
