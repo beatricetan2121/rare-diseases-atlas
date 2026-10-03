@@ -17,7 +17,7 @@ export const Route = createFileRoute("/disease/$id")({
 });
 
 function draftFor(partner: Partner, disease: string) {
-  return `Dear ${partner.contactName},\n\nI am reaching out about ${disease} (MPS IIIC). I saw your work on ${partner.approach.split(".")[0].toLowerCase()}.\n\n${partner.question}\n\nI would appreciate any public information you can share about this work and the best way to stay informed.\n\nThank you for your time,\n[Your name]`;
+  return `Dear ${partner.contactName},\n\nI am reaching out about ${disease} (MPS IIIC). I came across your publicly described work related to Type C.\n\n${partner.question}\n\nI would appreciate any public information you can share about this work and the best way to stay informed.\n\nThank you for your time,\n[Your name]`;
 }
 
 function DiseasePage() {
