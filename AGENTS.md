@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep atlas mock records in local JSON and access them through `src/lib/atlas.ts`, so a later data source can replace the mock without rewriting screens.
+- Keep the atlas background and persona context in the root shell, so navigation preserves their state and visual continuity.

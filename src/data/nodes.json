@@ -1,0 +1,320 @@
+[
+  {
+    "id": "mps-iiic",
+    "type": "disease",
+    "label": "Sanfilippo syndrome type C",
+    "plain_label": "Sanfilippo type C",
+    "synonyms": [
+      "MPS IIIC",
+      "Sanfilippo C",
+      "mucopolysaccharidosis IIIC"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "waste",
+    "research_activity": 38,
+    "attributes": {
+      "gene": "HGSNAT",
+      "description": "A change in HGSNAT disrupts a step that clears heparan sulfate from the cell’s recycling system.",
+      "patient_group": "Sample MPS IIIC Family Network"
+    }
+  },
+  {
+    "id": "mps-iiia",
+    "type": "disease",
+    "label": "Sanfilippo syndrome type A",
+    "plain_label": "Sanfilippo type A",
+    "synonyms": [
+      "MPS IIIA",
+      "Sanfilippo A"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "waste",
+    "research_activity": 86,
+    "attributes": {
+      "gene": "SGSH",
+      "description": "A different enzyme is involved in the same waste-clearance pathway.",
+      "patient_group": "Sample Sanfilippo Alliance"
+    }
+  },
+  {
+    "id": "mps-iiib",
+    "type": "disease",
+    "label": "Sanfilippo syndrome type B",
+    "plain_label": "Sanfilippo type B",
+    "synonyms": [
+      "MPS IIIB",
+      "Sanfilippo B"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "waste",
+    "research_activity": 72,
+    "attributes": {
+      "gene": "NAGLU",
+      "description": "The NAGLU enzyme helps break down heparan sulfate.",
+      "patient_group": "Sample Sanfilippo Alliance"
+    }
+  },
+  {
+    "id": "mps-iiid",
+    "type": "disease",
+    "label": "Sanfilippo syndrome type D",
+    "plain_label": "Sanfilippo type D",
+    "synonyms": [
+      "MPS IIID",
+      "Sanfilippo D"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "waste",
+    "research_activity": 25,
+    "attributes": {
+      "gene": "GNS",
+      "description": "The GNS enzyme participates in the same pathway.",
+      "patient_group": ""
+    }
+  },
+  {
+    "id": "mps-i",
+    "type": "disease",
+    "label": "MPS I",
+    "plain_label": "MPS I",
+    "synonyms": [
+      "Hurler syndrome"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "lysosomal",
+    "research_activity": 82,
+    "attributes": {
+      "gene": "IDUA",
+      "description": "A related storage condition affecting a different step.",
+      "patient_group": "Sample MPS Community"
+    }
+  },
+  {
+    "id": "mps-ii",
+    "type": "disease",
+    "label": "MPS II",
+    "plain_label": "MPS II",
+    "synonyms": [
+      "Hunter syndrome"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "lysosomal",
+    "research_activity": 74,
+    "attributes": {
+      "gene": "IDS",
+      "description": "A related storage condition involving another enzyme.",
+      "patient_group": "Sample MPS Community"
+    }
+  },
+  {
+    "id": "mps-vii",
+    "type": "disease",
+    "label": "MPS VII",
+    "plain_label": "MPS VII",
+    "synonyms": [
+      "Sly syndrome"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "lysosomal",
+    "research_activity": 55,
+    "attributes": {
+      "gene": "GUSB",
+      "description": "A related storage condition involving GUSB.",
+      "patient_group": "Sample MPS Community"
+    }
+  },
+  {
+    "id": "msd",
+    "type": "disease",
+    "label": "Multiple sulfatase deficiency",
+    "plain_label": "Multiple sulfatase deficiency",
+    "synonyms": [
+      "MSD"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "lysosomal",
+    "research_activity": 34,
+    "attributes": {
+      "gene": "SUMF1",
+      "description": "SUMF1 helps activate multiple sulfatase enzymes.",
+      "patient_group": "Sample MSD Community"
+    }
+  },
+  {
+    "id": "rett",
+    "type": "disease",
+    "label": "Rett syndrome",
+    "plain_label": "Rett syndrome",
+    "synonyms": [
+      "Rett"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "regulation",
+    "research_activity": 83,
+    "attributes": {
+      "gene": "MECP2",
+      "description": "Some symptoms overlap, but its cause is different.",
+      "patient_group": "Sample Rett Network"
+    }
+  },
+  {
+    "id": "mecp2-dup",
+    "type": "disease",
+    "label": "MECP2 duplication syndrome",
+    "plain_label": "MECP2 duplication syndrome",
+    "synonyms": [
+      "MECP2 duplication"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "regulation",
+    "research_activity": 48,
+    "attributes": {
+      "gene": "MECP2",
+      "description": "An opposite change in the amount of MECP2 protein.",
+      "patient_group": "Sample MECP2 Community"
+    }
+  },
+  {
+    "id": "disease-z",
+    "type": "disease",
+    "label": "Disease Z (demo gap)",
+    "plain_label": "Disease Z",
+    "synonyms": [
+      "Disease Z"
+    ],
+    "xrefs": {
+      "OMIM": "TBD"
+    },
+    "cluster": "unmapped",
+    "research_activity": 2,
+    "attributes": {
+      "gene": "GENE-TBD",
+      "description": "An illustrative example of a condition with too little mapped evidence.",
+      "patient_group": ""
+    }
+  },
+  {
+    "id": "waste",
+    "type": "cluster",
+    "label": "Heparan sulfate degradation",
+    "plain_label": "Waste clearance failure",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "color_token": "teal"
+    }
+  },
+  {
+    "id": "lysosomal",
+    "type": "cluster",
+    "label": "Lysosomal storage biology",
+    "plain_label": "Other lysosomal storage",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "color_token": "violet"
+    }
+  },
+  {
+    "id": "regulation",
+    "type": "cluster",
+    "label": "Gene dosage regulation",
+    "plain_label": "Gene regulation",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "color_token": "blue"
+    }
+  },
+  {
+    "id": "unmapped",
+    "type": "cluster",
+    "label": "Unmapped mechanism",
+    "plain_label": "Not yet mapped",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "color_token": "gray"
+    }
+  },
+  {
+    "id": "org-maria",
+    "type": "organization",
+    "label": "Sample MPS IIIC Family Network",
+    "plain_label": "Sample MPS IIIC Family Network",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "kind": "patient_group"
+    }
+  },
+  {
+    "id": "org-alliance",
+    "type": "organization",
+    "label": "Sample Sanfilippo Alliance",
+    "plain_label": "Sample Sanfilippo Alliance",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "kind": "patient_group"
+    }
+  },
+  {
+    "id": "org-lab",
+    "type": "organization",
+    "label": "Sample HGSNAT Lab",
+    "plain_label": "Sample HGSNAT Lab",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "kind": "lab"
+    }
+  },
+  {
+    "id": "org-mps",
+    "type": "organization",
+    "label": "Sample MPS Community",
+    "plain_label": "Sample MPS Community",
+    "synonyms": [],
+    "xrefs": {},
+    "cluster": null,
+    "research_activity": 0,
+    "attributes": {
+      "kind": "patient_group"
+    }
+  }
+]

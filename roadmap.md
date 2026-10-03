@@ -1,0 +1,3 @@
+- [x] Stage 1: White scientific design, home, roles, search, atlas, evidence and gap state.
+- [ ] Stage 2: Disease detail, people and outreach draft (awaiting stage 1 review).
+- [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).
