@@ -13,17 +13,6 @@ const positions: Record<string,[number,number]> = { "mps-iiic":[46,44],"mps-iiia
 const points = (id:string) => positions[id] ?? [50,50];
 const mapEdges = allEdges.filter((edge) => edge.id !== "e-rett-counter");
 const evidenceLabel = (edge: Edge) => edge.evidence_type === "curated" ? "Curated" : edge.evidence_type === "extracted" ? "AI-extracted" : "Inferred · review needed";
-const edgePosition = (edge: Edge) => {
- const [x1,y1] = points(edge.source), [x2,y2] = points(edge.target);
- const offsets: Record<string,[number,number]> = {
-  "e-iiic-iiia": [-1,-4], "e-iiic-iiib": [1,-5], "e-iiic-iiid": [3,1],
-  "e-iiic-rett": [3,5], "e-iiia-iiib": [0,5], "e-iiia-msd": [-3,-3],
-  "e-iiid-msd": [0,-4], "e-msd-mpsii": [-3,1], "e-mpsi-mpsii": [-3,2],
-  "e-mpsii-mpsvii": [0,-4], "e-rett-dup": [4,-1]
- };
- const [dx,dy] = offsets[edge.id] ?? [0,0];
- return { left: `${(x1+x2)/2+dx}%`, top: `${(y1+y2)/2+dy}%` };
-};
 function Atlas() {
  const { id }=Route.useParams(); const { persona }=useAtlas(); const [selected,setSelected]=useState(id); const [evidence,setEvidence]=useState<Edge|null>(null); const [inspectedEdge,setInspectedEdge]=useState<Edge|null>(null); const [loading,setLoading]=useState(true); const [view,setView]=useState<"map"|"list">("map"); const [switcher,setSwitcher]=useState(false); const [note,setNote]=useState(0); const [coverage,setCoverage]=useState<Awaited<ReturnType<typeof getSearchCoverage>>|null>(null); const [submitted,setSubmitted]=useState(false); const [query,setQuery]=useState(""); const [panelView,setPanelView]=useState<"biology"|"action">("biology"); const [partners,setPartners]=useState<Partner[]>([]); const [partnersLoading,setPartnersLoading]=useState(true);
  useEffect(()=>{setSelected(id);setInspectedEdge(null);setLoading(true);let active=true;getGraph(id,persona).then(()=>{if(active)setLoading(false)});if(id==="disease-z")getSearchCoverage("Disease Z").then((x)=>{if(active)setCoverage(x)});return()=>{active=false}},[id,persona]);
