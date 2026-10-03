@@ -1,6 +1,6 @@
 # Rare Disease Atlas
 
-An evidence-led rare-disease map prototype. This first review stage includes the introduction, four perspectives, search, constellation map, evidence inspection and an honest-gap example. Disease details and outreach are reserved for the next review stage.
+An evidence-led rare-disease map prototype. The current review includes the introduction, four perspectives, search, constellation map, evidence inspection, an honest-gap example, and a Type C partner and outreach page. Contact details and research programs are public-source references, not a live directory; the email draft opens in the visitor’s email app and is never sent automatically.
 
 ## Run locally
 
