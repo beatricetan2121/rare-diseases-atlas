@@ -98,3 +98,36 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
   .cluster-list { margin-top: 0; }
   .cluster-list::before { content: "MECHANISM CLUSTERS"; display: block; margin-bottom: 10px; color: var(--primary); font-size: 10px; font-weight: 750; letter-spacing: 1px; }
 }
+.partner-page { padding-top: 44px; }
+.partner-page .section-kicker { margin-top: 28px; }
+.partner-page h1 { max-width: 1100px; margin-top: 25px; }
+.partner-heading { margin-top: 68px; padding: 27px 0 22px; border-top: 1px solid var(--border); display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.partner-heading h2,.outreach-heading h2 { font-size: 31px; font-weight: 600; line-height: 1.16; margin: 13px 0 9px; }
+.partner-heading p,.outreach-heading p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+.partner-count { flex-shrink: 0; font-size: 11px; font-weight: 750; color: var(--primary); letter-spacing: 1px; }
+.partner-list { border-top: 1px solid var(--border); }
+.partner-record { display: grid; grid-template-columns: 42px minmax(170px,1fr) minmax(230px,1.3fr) minmax(200px,1fr); gap: 20px; padding: 27px 0; border-bottom: 1px solid var(--border); }
+.partner-index { font-size: 11px; color: var(--primary); font-weight: 750; padding-top: 2px; }
+.partner-identity h3 { font-size: 21px; font-weight: 620; margin: 9px 0 13px; }
+.partner-identity p { display: flex; gap: 6px; align-items: flex-start; font-size: 12px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+.partner-identity p svg { flex-shrink: 0; margin-top: 2px; }
+.field-label { display: block; font-size: 10px; font-weight: 750; letter-spacing: 1px; color: var(--muted-foreground); margin-bottom: 10px; }
+.partner-research p { font-size: 13px; line-height: 1.65; margin: 0 0 10px; }
+.partner-research small { color: var(--primary); font-size: 11px; font-weight: 650; }
+.partner-contact { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.partner-contact strong { font-size: 12px; }.partner-contact a,.outreach-recipient a { color: var(--primary); font-size: 11px; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 3px; }
+.partner-contact .source-link,.outreach-recipient a { display: inline-flex; align-items: center; gap: 5px; margin-top: 6px; }
+.partner-contact button { margin-top: 11px; border-radius: 2px; font-size: 11px; }
+.partner-caveat { color: var(--muted-foreground); max-width: 850px; font-size: 11px; line-height: 1.65; padding-top: 19px; }
+.partner-empty { border-top: 1px solid var(--border); padding: 35px 0 70px; color: var(--ink-soft); font-size: 14px; }.partner-empty h3 { color: var(--foreground); font-size: 21px; }.partner-empty p { max-width: 570px; line-height: 1.6; }
+.outreach-section { border-top: 1px solid var(--border); margin-top: 65px; padding-top: 32px; scroll-margin-top: 28px; }
+.outreach-heading { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
+.outreach-form { max-width: 850px; display: flex; flex-direction: column; margin-top: 26px; }
+.outreach-recipient { padding: 14px 17px; border: 1px solid var(--border); background: var(--surface); display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; }
+.outreach-recipient .field-label { margin: 0 8px 0 0; }.outreach-recipient a { margin: 0; }
+.outreach-form label { font-size: 11px; font-weight: 750; margin: 20px 0 8px; }
+.outreach-form input,.outreach-form textarea { border: 1px solid var(--border); background: var(--card); color: var(--foreground); width: 100%; outline-color: var(--primary); padding: 13px 15px; font-size: 13px; }
+.outreach-form textarea { min-height: 285px; resize: vertical; line-height: 1.65; }
+.outreach-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 18px; }.outreach-actions button { border-radius: 2px; }.outreach-actions span { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ink-soft); }
+@media (max-width: 1000px) { .partner-record { grid-template-columns: 34px minmax(0,1fr) minmax(0,1.2fr); }.partner-contact { grid-column: 2 / -1; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 7px 18px; }.partner-contact .field-label { width: 100%; }.partner-contact button { margin: 0 0 0 auto; } }
+@media (max-width: 600px) { .partner-page { padding-top: 29px; }.partner-page h1 { font-size: 42px; overflow-wrap: anywhere; }.partner-heading { margin-top: 44px; align-items: flex-start; flex-direction: column; gap: 15px; }.partner-heading h2,.outreach-heading h2 { font-size: 26px; }.partner-record { grid-template-columns: 29px minmax(0,1fr); gap: 13px; padding: 23px 0; }.partner-research,.partner-contact { grid-column: 2; }.partner-contact { flex-direction: column; align-items: flex-start; }.partner-contact button { margin: 8px 0 0; }.outreach-section { margin-top: 45px; }.outreach-recipient { align-items: flex-start; flex-direction: column; }.outreach-form textarea { min-height: 310px; } }
