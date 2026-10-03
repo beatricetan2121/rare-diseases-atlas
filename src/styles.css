@@ -93,3 +93,8 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
   .atlas-page .site-footer { height: 34px; min-height: 34px; padding: 4px 10px; justify-content: center; }
   .atlas-page .site-footer > span:first-child { display: none; }
 }
+@media (min-width: 601px) and (max-width: 850px) {
+  .sidebar-top { display: none; }
+  .cluster-list { margin-top: 0; }
+  .cluster-list::before { content: "MECHANISM CLUSTERS"; display: block; margin-bottom: 10px; color: var(--primary); font-size: 10px; font-weight: 750; letter-spacing: 1px; }
+}
