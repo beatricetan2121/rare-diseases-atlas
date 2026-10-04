@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ChatRouteImport } from './routes/chat'
+import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as WhoRouteImport } from './routes/who'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const ChatRoute = ChatRouteImport.update({
   id: '/chat',
   path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContributeRoute = ContributeRouteImport.update({
+  id: '/contribute',
+  path: '/contribute',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SearchRoute = SearchRouteImport.update({
@@ -62,6 +68,7 @@ const DiseaseIdRoute = DiseaseIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chat': typeof ChatRouteWithChildren
+  '/contribute': typeof ContributeRoute
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chat': typeof ChatRouteWithChildren
+  '/contribute': typeof ContributeRoute
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/chat': typeof ChatRouteWithChildren
+  '/contribute': typeof ContributeRoute
   '/search': typeof SearchRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/chat'
+    | '/contribute'
     | '/search'
     | '/who'
     | '/api/chat'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/chat'
+    | '/contribute'
     | '/search'
     | '/who'
     | '/api/chat'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/chat'
+    | '/contribute'
     | '/search'
     | '/who'
     | '/api/chat'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChatRoute: typeof ChatRouteWithChildren
+  ContributeRoute: typeof ContributeRoute
   SearchRoute: typeof SearchRoute
   WhoRoute: typeof WhoRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -147,6 +160,13 @@ declare module '@tanstack/react-router' {
       path: '/chat'
       fullPath: '/chat'
       preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contribute': {
+      id: '/contribute'
+      path: '/contribute'
+      fullPath: '/contribute'
+      preLoaderRoute: typeof ContributeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/search': {
@@ -207,6 +227,7 @@ const ChatRouteWithChildren = ChatRoute._addFileChildren(ChatRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChatRoute: ChatRouteWithChildren,
+  ContributeRoute: ContributeRoute,
   SearchRoute: SearchRoute,
   WhoRoute: WhoRoute,
   ApiChatRoute: ApiChatRoute,

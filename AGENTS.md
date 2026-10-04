@@ -14,3 +14,4 @@
 
 - Store short map relationship labels with each mock edge record, so in-graph summaries and evidence descriptions stay tied to the same data source.
 - Keep atlas assistant model calls on the server and persist conversations under the signed-in user's account, so private history and credentials remain isolated.
+- Store contributed research as owner-only submissions with private files and a pending-review status, so nothing enters the shared map without curation.

@@ -7,4 +7,5 @@
 - [x] Move cluster key and line legend above the enlarged graph; shorten atlas header and keep connection explanations outside the chart.
 - [x] Remove overlapping relationship captions and stack the cluster key above the line key.
 - [x] Add account-saved, separate conversations for a chart-specific assistant (signed-in conversation flow awaits an account for live verification).
+- [x] Rework chart screen per comments; add clinician research upload; rename Priya to pharma scout.
 - [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).
