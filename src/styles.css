@@ -394,9 +394,10 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 .atlas-page .site-header { height: 48px; padding-inline: clamp(16px, 3vw, 42px); gap: 22px; }
 .atlas-page .header-action { height: 34px; }
 .atlas-page .site-footer { min-height: 36px; }
-.atlas-layout-v2 { height: calc(100dvh - 84px); min-height: 510px; grid-template-columns: minmax(0,1fr) minmax(245px,300px); }
+.atlas-layout-v2 { height: auto; min-height: calc(100dvh - 84px); overflow: visible; grid-template-columns: minmax(0,1fr) minmax(245px,300px); }
 .atlas-layout-v2 .atlas-toolbar { min-height: 68px; padding-block: 7px; }
-.atlas-layout-v2 .network-stage { min-height: 300px; }
+.atlas-layout-v2 .network-stage { flex: none; height: clamp(350px, calc(100dvh - 385px), 650px); }
+.atlas-layout-v2 .detail-panel { overflow: visible; }
 .atlas-layout-v2 .network-legend { flex-shrink: 0; justify-content: flex-start; padding: 9px 18px; gap: 8px 20px; }
 .chart-connection-list { flex-shrink: 0; border-bottom: 1px solid var(--border); font-size: 12px; }
 .chart-connection-list summary { cursor: pointer; padding: 8px 18px; color: var(--primary); font-weight: 650; }
