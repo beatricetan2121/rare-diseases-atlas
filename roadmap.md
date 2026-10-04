@@ -10,4 +10,5 @@
 - [x] Rework chart screen per comments; add clinician research upload; rename Priya to pharma scout.
 - [x] Apply annotated chart feedback: larger perspective selector, separate plain-language explanation, no duplicate next-steps tab, and dark-blue ordered actions.
 - [x] Apply latest chart annotation: shorter header, larger map with legend below, test assistant mock, and chart accessibility.
+- [x] Label the live chart assistant as powered by OpenAI and link to it from the test assistant; keep sample answers distinct.
 - [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).
