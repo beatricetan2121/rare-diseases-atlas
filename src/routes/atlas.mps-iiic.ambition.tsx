@@ -68,7 +68,8 @@ function AmbitionPage() {
     let mult = 1;
     for (const a of failed) {
       const f = a.ifFails!;
-      if (f.replace) atlas = atlas.map((s) => f.replace![s.id] ? { ...s, ...f.replace![s.id], range: `~${f.replace![s.id].months} months`, changed: true, evidence: undefined } : s);
+      const rep = f.replace;
+      if (rep) atlas = atlas.map((s) => { const r = rep[s.id]; return r ? { ...s, ...r, range: `~${r.months} months`, changed: true, evidence: undefined } : s; });
       if (f.add) atlas = [...atlas, { ...f.add, tone: "teal", changed: true }];
       if (f.baselineMultiplier) mult *= f.baselineMultiplier;
     }
@@ -92,7 +93,7 @@ function AmbitionPage() {
         <div className="amb-milestone"><span className="eyebrow">MILESTONE</span><p>{ambition.milestone}</p></div>
         <div className="amb-chart">
           <div className="amb-bars">
-            <Bar segs={calc.baseline} tone="gray" label="Building alone" total={allHold || holds.baseline ? "~20–33 months" : `~${calc.baselineTotal.toFixed(1)} months (halved)`} grown={grown} delay={0} open={open} setOpen={setOpen}/>
+            <Bar segs={calc.baseline} tone="gray" label="Building alone" total={allHold || holds["baseline"] ? "~20–33 months" : `~${calc.baselineTotal.toFixed(1)} months (halved)`} grown={grown} delay={0} open={open} setOpen={setOpen}/>
             <div className="amb-parallel-row">{parallel.map((s) => <span key={s.id} className="amb-diamond-wrap"><button type="button" className="amb-diamond" aria-label={`${s.label}, in parallel`} onMouseEnter={() => setOpen(s.id)} onMouseLeave={() => setOpen("")} onFocus={() => setOpen(s.id)} onClick={() => setOpen(open === s.id ? "" : s.id)}/><small>in parallel</small>{open === s.id && <div className="amb-tip" role="tooltip" onMouseEnter={() => setOpen(s.id)} onMouseLeave={() => setOpen("")}><strong>{s.label}</strong><span>{s.range}</span>{s.evidence && <EvidenceLink {...s.evidence}/>}</div>}</span>)}</div>
             <Bar segs={calc.atlas.filter((s) => s.months > 0)} tone="teal" label="With the atlas: reuse, don't rebuild" total={allHold ? "~2–3 months" : `~${calc.atlasTotal.toFixed(1)} months`} grown={grown} delay={500} open={open} setOpen={setOpen}/>
             <div className="amb-axis">{ticks.map((t) => <span key={t} style={{ left: `${(t / SCALE) * 100}%` }}>{t}</span>)}<em>months</em></div>
