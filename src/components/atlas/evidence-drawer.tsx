@@ -1,5 +1,4 @@
-import { X, ExternalLink, CircleAlert } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ExternalLink, CircleAlert } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { allEdges, type Edge } from "@/lib/atlas";
 
@@ -7,7 +6,7 @@ export function EvidenceDrawer({ edge, onClose }: { edge: Edge | null; onClose: 
   const label = edge?.evidence_type === "curated" ? "Curated" : edge?.evidence_type === "extracted" ? "AI-extracted" : "Inferred, needs expert review";
   const level = edge ? { hypothesis: "Idea, not yet tested", preclinical: "Seen in lab or animal studies", clinical_observation: "Seen in patients", clinical_trial: "Shown in a clinical trial" }[edge.evidence_level] : "";
   return <Sheet open={Boolean(edge)} onOpenChange={(open) => { if (!open) onClose(); }}><SheetContent side="right" className="evidence-drawer" aria-describedby="evidence-description"><SheetTitle>Why this connection?</SheetTitle><SheetDescription id="evidence-description">Illustrative source record and confidence details.</SheetDescription>{edge && <>
-    <div className="drawer-top"><span className="eyebrow">SOURCE RECORD / DEMO</span><Button variant="ghost" size="icon" aria-label="Close evidence" onClick={onClose}><X/></Button></div>
+    <div className="drawer-top"><span className="eyebrow">SOURCE RECORD / DEMO</span></div>
     <p className="drawer-lead">{edge.plain_explanation}</p>
     <div className="evidence-line"><span className={`line-sample ${edge.evidence_type}`}/><strong>{label}</strong><span className="muted">· {level}</span></div>
     <div className="drawer-rule"/>

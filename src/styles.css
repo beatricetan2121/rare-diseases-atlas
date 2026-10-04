@@ -425,4 +425,6 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
   .atlas-layout-v2 .network-stage { height: 570px; min-height: 570px; }
   .chart-connection-list > div { grid-template-columns: 1fr; }
   .chat-suggestions { padding-inline: 12px; }
+  .atlas-layout-v2 .graph-node { width: 62px; }
+  .atlas-layout-v2 .node-name, .atlas-layout-v2 .node-name small { font-size: 9px; }
 }
