@@ -346,6 +346,8 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 
 /* Keep chart navigation, condition context, and actions outside the plotted area. */
 .atlas-layout-v2 .atlas-toolbar { min-height: 86px; gap: 18px; }
+.atlas-layout-v2 .atlas-center { grid-row: 1; }
+.atlas-layout-v2 .detail-panel { grid-row: 1; }
 .atlas-toolbar-actions { gap: 14px; }
 .atlas-layout-v2 .persona-switch button { min-width: 185px; height: 50px; padding: 6px 12px; background: var(--atlas-navy); color: var(--atlas-navy-foreground); border-color: var(--atlas-navy); font-size: 13px; font-weight: 700; }
 .atlas-layout-v2 .persona-switch button:hover { background: color-mix(in oklab,var(--atlas-navy) 88%,var(--foreground)); color: var(--atlas-navy-foreground); }
