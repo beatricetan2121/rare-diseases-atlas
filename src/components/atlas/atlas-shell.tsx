@@ -4,7 +4,7 @@ import { ArrowUpRight, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { diseases, type Persona } from "@/lib/atlas";
 
-const labels: Record<Persona, string> = { maria: "Patient group leader", devon: "Parent or caregiver", priya: "Therapy researcher", osei: "Researcher or clinician" };
+const labels: Record<Persona, string> = { maria: "Patient group leader", devon: "Parent or caregiver", priya: "Pharma scout", osei: "Clinician researcher" };
 const AtlasContext = createContext<{ persona: Persona; setPersona: (p: Persona) => void }>({ persona: "maria", setPersona: () => {} });
 export const useAtlas = () => useContext(AtlasContext);
 export const personaLabels = labels;

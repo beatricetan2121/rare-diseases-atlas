@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { diseases, searchEntities, type Disease, type Persona } from "@/lib/atlas";
 
 export const Route = createFileRoute("/search")({ head: () => ({ meta: [{ title: "Search the atlas — Rare Disease Atlas" }, { name: "description", content: "Search by disease, gene, symptom or therapeutic approach in the illustrative atlas." }, { property: "og:title", content: "Search — Rare Disease Atlas" }, { property: "og:description", content: "Find rare-disease connections by name, gene or therapeutic approach." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: SearchPage });
-const questions: Record<Persona,string> = { maria: "Which disease does your group work on?", devon: "What’s the diagnosis?", priya: "Which therapy approach are you exploring?", osei: "Which gene or mechanism do you study?" };
+const questions: Record<Persona,string> = { maria: "Which disease does your group work on?", devon: "What’s the diagnosis?", priya: "Which drug modality are you scouting?", osei: "Which gene or mechanism do you study?" };
 const examples: Record<Persona,string[]> = { maria: ["Sanfilippo syndrome", "HGSNAT", "MPS IIIC"], devon: ["Sanfilippo C", "HGSNAT", "MPS IIIC"], priya: ["enzyme replacement", "gene therapy"], osei: ["HGSNAT", "heparan sulfate"] };
 function SearchPage() {
  const { persona } = useAtlas(); const navigate = useNavigate(); const [query,setQuery] = useState(""); const [matches,setMatches] = useState<Disease[]>([]); const [loading,setLoading] = useState(false); const [report,setReport] = useState(false); const [reportText,setReportText] = useState("");
