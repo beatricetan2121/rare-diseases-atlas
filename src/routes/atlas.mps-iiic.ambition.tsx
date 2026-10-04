@@ -109,7 +109,7 @@ function AmbitionPage() {
         {ambition.assumptions.map((a) => <div key={a.id} id={`assumption-${a.id}`} className={`amb-assumption ${holds[a.id] ? "" : "failed"}`}>
           <span className={`strength-pill ${statusClass[a.status]}`}>{statusLabel[a.status]}</span>
           <div className="amb-assumption-body"><p>{a.text}</p>{a.note && <small>{a.note}</small>}{a.sources && <div className="amb-sources">{a.sources.map((s) => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer">{s.label} <ExternalLink size={11}/></a>)}</div>}</div>
-          {a.status !== "verified" && <label className="amb-switch"><Switch checked={holds[a.id]} onCheckedChange={(v) => setHolds((h) => ({ ...h, [a.id]: v }))} aria-label={`${a.short} holds`}/><span>Holds</span></label>}
+          {a.status !== "verified" && <label className="amb-switch"><Switch checked={holds[a.id] ?? true} onCheckedChange={(v) => setHolds((h) => ({ ...h, [a.id]: v }))} aria-label={`${a.short} holds`}/><span>Holds</span></label>}
         </div>)}
       </aside>
     </section>
