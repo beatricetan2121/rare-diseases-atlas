@@ -25,7 +25,7 @@ function answer(question: string, diseaseId: string) {
   return `This test assistant only explains the sample chart for ${condition?.plain_label ?? "the selected condition"}. It cannot verify medical claims or answer questions beyond the displayed records. Try asking about a connection, a line style, or treatment transfer.`;
 }
 
-export function AtlasChatDemo({ diseaseId }: { diseaseId: string }) {
+export function AtlasChatDemo({ diseaseId, variant = "page" }: { diseaseId: string; variant?: "page" | "drawer" }) {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [text, setText] = useState("");
   const input = useRef<HTMLTextAreaElement>(null);
@@ -38,6 +38,11 @@ export function AtlasChatDemo({ diseaseId }: { diseaseId: string }) {
     setText("");
     input.current?.focus();
   }
+  const chips = <div className="chat-suggestions" aria-label="Sample questions">{suggestions.map((suggestion) => <Button key={suggestion} type="button" variant="outline" size="sm" onClick={() => ask(suggestion)}>{suggestion}</Button>)}</div>;
+  if (variant === "drawer") return <div className="chat-drawer-body">{chips}
+    <div className="chat-dialog"><Conversation aria-label="Test conversation"><ConversationContent>{turns.length === 0 && <div className="chat-intro"><MessageCircle size={22} aria-hidden="true"/><p>Answers use the illustrative records shown in the map.</p></div>}{turns.map((turn, index) => <Message key={index} from={turn.role}><MessageContent><MessageResponse>{turn.text}</MessageResponse></MessageContent></Message>)}</ConversationContent><ConversationScrollButton aria-label="Scroll to latest message"/></Conversation>
+      <div className="chat-composer"><PromptInput onSubmit={({ text: submitted }) => ask(submitted)}><PromptInputBody><PromptInputTextarea ref={input} value={text} onChange={(event) => setText(event.target.value)} placeholder="Ask about a connection…" aria-label="Ask about the chart"/></PromptInputBody><PromptInputFooter><span>Test answers · not medical advice · not saved</span><PromptInputSubmit disabled={!text.trim()}/></PromptInputFooter></PromptInput></div>
+    </div><Link to="/chat" search={{ diseaseId, demo: false }} className="chat-live-link">Use live assistant (sign-in) →</Link></div>;
   return <div className="chat-workspace chat-demo-workspace"><section className="chat-main"><div className="chat-main-heading"><div><Link to="/atlas/$id" params={{ id: diseaseId }} className="back-link"><ArrowLeft size={14}/> Back to chart</Link><h1>Chart assistant · test</h1><p>{condition?.label ?? "Chart"} · sample answers only</p></div><Link to="/chat" search={{ diseaseId, demo: false }} className="chat-live-link">Use live assistant →</Link></div>
     <div className="chat-dialog"><Conversation aria-label="Test conversation"><ConversationContent>{turns.length === 0 && <div className="chat-intro"><MessageCircle size={24} aria-hidden="true"/><h2>Ask about this chart</h2><p>Answers use the illustrative records shown in the map.</p></div>}{turns.map((turn, index) => <Message key={index} from={turn.role}><MessageContent><MessageResponse>{turn.text}</MessageResponse></MessageContent></Message>)}</ConversationContent><ConversationScrollButton aria-label="Scroll to latest message"/></Conversation>
       <div className="chat-suggestions" aria-label="Sample questions">{suggestions.map((suggestion) => <Button key={suggestion} type="button" variant="outline" onClick={() => ask(suggestion)}>{suggestion}</Button>)}</div>
