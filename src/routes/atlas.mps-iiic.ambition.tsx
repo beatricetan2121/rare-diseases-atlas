@@ -69,7 +69,7 @@ function AmbitionPage() {
     for (const a of failed) {
       const f = a.ifFails!;
       const rep = f.replace;
-      if (rep) atlas = atlas.map((s) => { const r = rep[s.id]; return r ? { ...s, ...r, range: `~${r.months} months`, changed: true, evidence: undefined } : s; });
+      if (rep) atlas = atlas.map((s) => { const r = rep[s.id]; if (!r) return s; const { evidence: _e, ...rest } = s; void _e; return { ...rest, ...r, range: `~${r.months} months`, changed: true }; });
       if (f.add) atlas = [...atlas, { ...f.add, tone: "teal", changed: true }];
       if (f.baselineMultiplier) mult *= f.baselineMultiplier;
     }
