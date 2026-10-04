@@ -557,3 +557,52 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 .amb-close h2 { font-size: clamp(44px, 7vw, 104px); line-height: 1; margin: 0; }
 .amb-close p { font-size: 13px; color: var(--muted-foreground); margin: 0; }
 @media (max-width: 900px) { .amb-fold { grid-template-columns: 1fr; } .amb-right { border-left: 0; padding-left: 0; } .amb-chart { grid-template-columns: 1fr; } }
+
+/* Chart: shared top rail, full-width actions, and a separate scrollable explanation. */
+.atlas-fit { grid-template-rows: minmax(0, 1fr) auto; }
+.atlas-fit-main { display: contents; }
+.atlas-fit-bar { grid-column: 1 / -1; grid-row: 1; align-self: start; z-index: 2; height: 64px; padding-inline: 22px; background: var(--background); }
+.atlas-fit-title { flex-shrink: 0; }
+.atlas-fit-title h1 { font-size: 21px; }
+.atlas-fit-canvas { grid-column: 1; grid-row: 1; padding: 72px 8px 8px; }
+.atlas-fit-panel { grid-column: 2; grid-row: 1; padding-top: 64px; }
+.atlas-fit-actions { grid-column: 1 / -1; grid-row: 2; display: flex; justify-content: center; gap: 10px; padding: 10px 22px; }
+.atlas-fit-actions > button, .atlas-fit-actions > a { width: min(100%, 370px); min-height: 48px; height: auto; white-space: normal; line-height: 1.25; text-align: center; background: var(--atlas-navy); color: var(--atlas-navy-foreground); border: 1px solid var(--atlas-navy); }
+.atlas-fit-actions > button:hover, .atlas-fit-actions > a:hover { background: var(--primary); color: var(--primary-foreground); }
+.atlas-fit-actions .atlas-fit-upload { width: auto; min-width: 175px; color: var(--atlas-navy); background: var(--background); }
+.atlas-fit-clusters { scrollbar-width: thin; }
+@media (max-width: 850px) {
+  .site-header { height: auto; min-height: 70px; flex-wrap: wrap; gap: 8px 16px; padding-block: 12px; }
+  .top-nav { display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+  .top-nav a { font-size: 11px; }
+  .atlas-fit { display: flex; flex-direction: column; height: auto; min-height: 0; }
+  .atlas-fit-main { display: flex; }
+  .atlas-fit-bar { height: auto; min-height: 52px; align-self: stretch; padding: 10px 16px; }
+  .atlas-fit-canvas { padding: 8px; height: 520px; }
+  .atlas-fit-panel { padding-top: 0; }
+  .atlas-fit-actions { position: static; flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .site-header { align-items: flex-start; }
+  .top-nav { width: 100%; margin-left: 0; justify-content: space-between; gap: 8px; }
+  .atlas-fit-canvas { height: 490px; }
+  .atlas-fit-actions > button, .atlas-fit-actions > a, .atlas-fit-actions .atlas-fit-upload { width: 100%; }
+}
+
+/* Site-wide ambition and team pages */
+.vision-page { position: relative; }
+.vision-intro { padding-block: clamp(70px, 11vh, 130px) clamp(72px, 11vh, 130px); }
+.vision-intro h1 { font-size: clamp(48px, 6vw, 88px); line-height: 1.03; margin: 30px 0 25px; max-width: 1100px; }
+.vision-intro h1 em { font-style: normal; color: var(--primary); }
+.vision-intro > p { max-width: 720px; font-size: 20px; line-height: 1.55; color: var(--ink-soft); }
+.vision-intro .vision-caveat { font-size: 13px; color: var(--muted-foreground); margin-top: 32px; }
+.vision-principles { border-block: 1px solid var(--border); background: var(--surface); padding: 70px 0 90px; }
+.vision-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 30px; }
+.vision-grid article { border-top: 2px solid var(--primary); padding: 25px 35px 10px 0; margin-right: 35px; min-width: 0; }
+.vision-grid article svg { color: var(--primary); margin: 15px 0 22px; }
+.vision-number { font-size: 12px; font-weight: 750; color: var(--primary); display: block; }
+.vision-grid h2 { font-size: 25px; margin: 15px 0 14px; }
+.vision-grid p { color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+.vision-end { padding-block: 80px 100px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.vision-end h2 { font-size: 32px; max-width: 600px; margin: 0; }
+@media (max-width: 850px) { .vision-grid { grid-template-columns: 1fr; gap: 22px; } .vision-intro { padding-block: 65px; } .vision-intro > p { font-size: 17px; } .vision-end { flex-direction: column; align-items: flex-start; } }

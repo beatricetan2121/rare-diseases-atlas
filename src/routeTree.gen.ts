@@ -10,9 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AmbitionRouteImport } from './routes/ambition'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as WhoRouteImport } from './routes/who'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AtlasIdRouteImport } from './routes/atlas.$id'
@@ -23,6 +25,11 @@ import { Route as AtlasMpsIiicAmbitionRouteImport } from './routes/atlas.mps-iii
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmbitionRoute = AmbitionRouteImport.update({
+  id: '/ambition',
+  path: '/ambition',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatRoute = ChatRouteImport.update({
@@ -38,6 +45,11 @@ const ContributeRoute = ContributeRouteImport.update({
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
   path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WhoRoute = WhoRouteImport.update({
@@ -73,9 +85,11 @@ const AtlasMpsIiicAmbitionRoute = AtlasMpsIiicAmbitionRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ambition': typeof AmbitionRoute
   '/chat': typeof ChatRouteWithChildren
   '/contribute': typeof ContributeRoute
   '/search': typeof SearchRoute
+  '/team': typeof TeamRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
@@ -85,9 +99,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ambition': typeof AmbitionRoute
   '/chat': typeof ChatRouteWithChildren
   '/contribute': typeof ContributeRoute
   '/search': typeof SearchRoute
+  '/team': typeof TeamRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
@@ -98,9 +114,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ambition': typeof AmbitionRoute
   '/chat': typeof ChatRouteWithChildren
   '/contribute': typeof ContributeRoute
   '/search': typeof SearchRoute
+  '/team': typeof TeamRoute
   '/who': typeof WhoRoute
   '/api/chat': typeof ApiChatRoute
   '/atlas/$id': typeof AtlasIdRoute
@@ -112,9 +130,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ambition'
     | '/chat'
     | '/contribute'
     | '/search'
+    | '/team'
     | '/who'
     | '/api/chat'
     | '/atlas/$id'
@@ -124,9 +144,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ambition'
     | '/chat'
     | '/contribute'
     | '/search'
+    | '/team'
     | '/who'
     | '/api/chat'
     | '/atlas/$id'
@@ -136,9 +158,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ambition'
     | '/chat'
     | '/contribute'
     | '/search'
+    | '/team'
     | '/who'
     | '/api/chat'
     | '/atlas/$id'
@@ -149,9 +173,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AmbitionRoute: typeof AmbitionRoute
   ChatRoute: typeof ChatRouteWithChildren
   ContributeRoute: typeof ContributeRoute
   SearchRoute: typeof SearchRoute
+  TeamRoute: typeof TeamRoute
   WhoRoute: typeof WhoRoute
   ApiChatRoute: typeof ApiChatRoute
   AtlasIdRoute: typeof AtlasIdRoute
@@ -166,6 +192,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ambition': {
+      id: '/ambition'
+      path: '/ambition'
+      fullPath: '/ambition'
+      preLoaderRoute: typeof AmbitionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat': {
@@ -187,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/search'
       fullPath: '/search'
       preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/who': {
@@ -246,9 +286,11 @@ const ChatRouteWithChildren = ChatRoute._addFileChildren(ChatRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AmbitionRoute: AmbitionRoute,
   ChatRoute: ChatRouteWithChildren,
   ContributeRoute: ContributeRoute,
   SearchRoute: SearchRoute,
+  TeamRoute: TeamRoute,
   WhoRoute: WhoRoute,
   ApiChatRoute: ApiChatRoute,
   AtlasIdRoute: AtlasIdRoute,

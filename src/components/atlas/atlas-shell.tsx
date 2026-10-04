@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, Activity } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Activity } from "lucide-react";
 import { diseases, type Persona } from "@/lib/atlas";
 
 const labels: Record<Persona, string> = { maria: "Patient group leader", devon: "Parent or caregiver", priya: "Pharma scout", osei: "Clinician researcher" };
@@ -63,8 +62,7 @@ export function AtlasShell({ children }: { children: ReactNode }) {
     <div className={`app-frame ${path.startsWith("/atlas/") && !path.endsWith("/ambition") ? "atlas-page compact-page" : path.startsWith("/disease/") ? "compact-page" : ""}`}>
       <header className="site-header">
         <Link to="/" className="brand" aria-label="Rare Disease Atlas home"><span className="brand-symbol"><Activity size={20} strokeWidth={1.7}/></span><span>rare disease <strong>atlas</strong></span></Link>
-        <nav className="top-nav" aria-label="Main navigation"><Link to="/who" search={{ as: persona } as never}>How it works</Link><Link to="/search" search={{ as: persona } as never}>Explore the atlas</Link></nav>
-        <Button asChild size="sm" variant="outline" className="header-action"><Link to="/search" search={{ as: persona } as never}>Start exploring <ArrowUpRight size={15}/></Link></Button>
+        <nav className="top-nav" aria-label="Main navigation"><Link to="/who" search={{ as: persona } as never}>Explore the atlas</Link><Link to="/ambition">Our 10× path</Link><Link to="/team">The team behind</Link></nav>
       </header>
       <main className={path === "/" ? "home-main" : "page-main"}>{children}</main>
       <footer className="site-footer"><span>RARE DISEASE ATLAS <span className="footer-divider">/</span> DEMONSTRATION DATA</span><span className="footer-end"><span>Research navigation tool, not medical advice. Discuss any next step with your care team.</span><span className="footer-powered">Powered by OpenAI</span></span></footer>
