@@ -11,4 +11,5 @@
 - [x] Apply annotated chart feedback: larger perspective selector, separate plain-language explanation, no duplicate next-steps tab, and dark-blue ordered actions.
 - [x] Apply latest chart annotation: shorter header, larger map with legend below, test assistant mock, and chart accessibility.
 - [x] Label the live chart assistant as powered by OpenAI and link to it from the test assistant; keep sample answers distinct.
+- [x] Restore full-width chart actions and add a site-wide 10× ambition and team pages to a three-link navigation, removing the condition-specific 10× shortcut from next steps.
 - [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).

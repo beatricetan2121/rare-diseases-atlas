@@ -17,3 +17,4 @@
 - Store contributed research as owner-only submissions with private files and a pending-review status, so nothing enters the shared map without curation.
 - Keep the chart assistant test mode client-only and explicitly labeled as sample answers, so it remains available without sign-in or model usage and cannot be mistaken for live research.
 - Show OpenAI attribution only on the model-powered assistant, not the sample-answer test mode, so users can tell which experience calls a model.
+- Keep the site-wide ambition separate from condition-specific scenarios, so an illustrative disease timeline is not presented as a universal outcome.
