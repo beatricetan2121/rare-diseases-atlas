@@ -60,7 +60,7 @@ export function AtlasShell({ children }: { children: ReactNode }) {
   const context = useMemo(() => ({ persona, setPersona: setSelected }), [persona]);
   return <AtlasContext.Provider value={context}>
     <ScientificField />
-    <div className={`app-frame ${path.startsWith("/atlas/") ? "atlas-page compact-page" : path.startsWith("/disease/") ? "compact-page" : ""}`}>
+    <div className={`app-frame ${path.startsWith("/atlas/") && !path.endsWith("/ambition") ? "atlas-page compact-page" : path.startsWith("/disease/") ? "compact-page" : ""}`}>
       <header className="site-header">
         <Link to="/" className="brand" aria-label="Rare Disease Atlas home"><span className="brand-symbol"><Activity size={20} strokeWidth={1.7}/></span><span>rare disease <strong>atlas</strong></span></Link>
         <nav className="top-nav" aria-label="Main navigation"><Link to="/who" search={{ as: persona } as never}>How it works</Link><Link to="/search" search={{ as: persona } as never}>Explore the atlas</Link></nav>

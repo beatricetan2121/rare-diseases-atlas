@@ -499,3 +499,61 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
 .outreach-sheet .outreach-form { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
 .outreach-sheet textarea { min-height: 260px; }
 @media (max-width: 850px) { .steps-page { height: auto; overflow: visible; } .steps-grid { grid-template-columns: 1fr; } }
+
+/* 10x ambition page */
+.steps-ambition-cta { align-self: flex-start; }
+.amb-page { width: min(100% - 48px, 1360px); margin: 0 auto; }
+.amb-fold { display: grid; grid-template-columns: minmax(0,65fr) minmax(0,35fr); gap: 32px; min-height: calc(100dvh - 164px); padding: 18px 0 20px; align-items: start; }
+.amb-left { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.amb-left h1 { font-size: clamp(28px, 2.6vw, 40px); line-height: 1.1; margin: 0; }
+.amb-milestone { border: 1px solid color-mix(in oklab, var(--primary) 35%, transparent); background: color-mix(in oklab, var(--primary) 4%, var(--background)); padding: 10px 14px; }
+.amb-milestone p { margin: 4px 0 0; font-size: 14px; }
+.amb-chart { display: grid; grid-template-columns: minmax(0,1fr) 180px; gap: 20px; align-items: center; margin-top: 6px; }
+.amb-bars { display: flex; flex-direction: column; gap: 4px; padding-bottom: 22px; position: relative; }
+.amb-bar-row { display: flex; flex-direction: column; gap: 4px; }
+.amb-bar-label { font-size: 12px; font-weight: 650; }
+.amb-track { display: flex; gap: 2px; height: 26px; }
+.amb-seg-wrap { position: relative; height: 100%; flex-shrink: 0; transition: width 300ms ease; }
+.amb-seg-wrap[style*="0px"] { transition-duration: 500ms; }
+.amb-seg { width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; }
+.amb-seg.gray { background: color-mix(in oklab, var(--muted-foreground) 45%, var(--background)); }
+.amb-seg.teal { background: var(--primary); }
+.amb-seg.changed { background: var(--warning); }
+.amb-seg:focus-visible, .amb-diamond:focus-visible { outline: 2px solid var(--foreground); outline-offset: 2px; }
+.amb-total { font-size: 11px; color: var(--muted-foreground); }
+.amb-tip { position: absolute; bottom: calc(100% + 6px); left: 0; z-index: 20; width: 260px; display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; background: var(--background); border: 1px solid var(--border); box-shadow: 0 8px 24px -12px color-mix(in oklab, var(--foreground) 35%, transparent); font-size: 12px; }
+.amb-tip span { color: var(--muted-foreground); }
+.amb-chip { display: inline-flex; align-items: center; gap: 4px; align-self: flex-start; font-size: 10px; padding: 2px 7px; border: 1px solid var(--primary); color: var(--primary); }
+.amb-parallel-row { height: 28px; display: flex; align-items: flex-end; gap: 12px; margin-top: 6px; }
+.amb-diamond-wrap { position: relative; display: inline-flex; align-items: center; gap: 6px; }
+.amb-diamond-wrap small { font-size: 10px; color: var(--muted-foreground); }
+.amb-diamond { width: 11px; height: 11px; transform: rotate(45deg); background: var(--primary); border: 0; padding: 0; cursor: pointer; }
+.amb-axis { position: absolute; left: 0; right: 0; bottom: 0; height: 18px; border-top: 1px solid var(--border); }
+.amb-axis span { position: absolute; top: 3px; transform: translateX(-50%); font-size: 10px; color: var(--muted-foreground); }
+.amb-axis span:first-child { transform: none; } .amb-axis span:nth-last-child(2) { transform: translateX(-100%); }
+.amb-axis em { position: absolute; right: 0; top: -16px; font-size: 10px; font-style: normal; color: var(--muted-foreground); }
+.amb-ratio { border: 1px solid var(--primary); padding: 14px; text-align: center; display: flex; flex-direction: column; gap: 6px; transition: border-color .3s; }
+.amb-ratio strong { font-size: 30px; line-height: 1; color: var(--primary); transition: color .3s; }
+.amb-ratio small { font-size: 11px; color: var(--muted-foreground); }
+.amb-ratio.warn { border-color: var(--warning); } .amb-ratio.warn strong { color: var(--warning); font-size: 24px; }
+.amb-caption { font-size: 11px; color: var(--muted-foreground); margin: 0; }
+.amb-right { border-left: 1px solid var(--border); padding-left: 22px; display: flex; flex-direction: column; gap: 0; }
+.amb-assumption { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 10px; align-items: start; padding: 11px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 80px; }
+.amb-assumption p { margin: 0; font-size: 13px; line-height: 1.35; }
+.amb-assumption small { font-size: 11px; color: var(--muted-foreground); }
+.amb-assumption.failed p { color: var(--muted-foreground); text-decoration: line-through; text-decoration-color: var(--warning); }
+.amb-assumption:target { background: color-mix(in oklab, var(--primary) 6%, transparent); }
+.amb-sources { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; }
+.amb-sources a { font-size: 11px; color: var(--primary); display: inline-flex; gap: 4px; align-items: center; }
+.amb-switch { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10px; color: var(--muted-foreground); }
+.amb-validate { padding: 48px 0; border-top: 1px solid var(--border); }
+.amb-validate ol { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; }
+.amb-validate li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.amb-validate li.done label { color: var(--muted-foreground); text-decoration: line-through; }
+.amb-num { font-size: 11px; font-weight: 750; color: var(--primary); width: 22px; }
+.amb-validate label { flex: 1; cursor: pointer; }
+.amb-owner { font-size: 10px; padding: 2px 8px; border-radius: 999px; background: var(--muted); color: var(--foreground); }
+.amb-close { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; }
+.amb-close h2 { font-size: clamp(44px, 7vw, 104px); line-height: 1; margin: 0; }
+.amb-close p { font-size: 13px; color: var(--muted-foreground); margin: 0; }
+@media (max-width: 900px) { .amb-fold { grid-template-columns: 1fr; } .amb-right { border-left: 0; padding-left: 0; } .amb-chart { grid-template-columns: 1fr; } }

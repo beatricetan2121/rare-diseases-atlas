@@ -18,6 +18,7 @@ import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AtlasIdRouteImport } from './routes/atlas.$id'
 import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 import { Route as DiseaseIdRouteImport } from './routes/disease.$id'
+import { Route as AtlasMpsIiicAmbitionRouteImport } from './routes/atlas.mps-iiic.ambition'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,11 @@ const DiseaseIdRoute = DiseaseIdRouteImport.update({
   path: '/disease/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtlasMpsIiicAmbitionRoute = AtlasMpsIiicAmbitionRouteImport.update({
+  id: '/atlas/mps-iiic/ambition',
+  path: '/atlas/mps-iiic/ambition',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/atlas/$id': typeof AtlasIdRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/disease/$id': typeof DiseaseIdRoute
+  '/atlas/mps-iiic/ambition': typeof AtlasMpsIiicAmbitionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/atlas/$id': typeof AtlasIdRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/disease/$id': typeof DiseaseIdRoute
+  '/atlas/mps-iiic/ambition': typeof AtlasMpsIiicAmbitionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/atlas/$id': typeof AtlasIdRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/disease/$id': typeof DiseaseIdRoute
+  '/atlas/mps-iiic/ambition': typeof AtlasMpsIiicAmbitionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/atlas/$id'
     | '/chat/$threadId'
     | '/disease/$id'
+    | '/atlas/mps-iiic/ambition'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/atlas/$id'
     | '/chat/$threadId'
     | '/disease/$id'
+    | '/atlas/mps-iiic/ambition'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/atlas/$id'
     | '/chat/$threadId'
     | '/disease/$id'
+    | '/atlas/mps-iiic/ambition'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   AtlasIdRoute: typeof AtlasIdRoute
   DiseaseIdRoute: typeof DiseaseIdRoute
+  AtlasMpsIiicAmbitionRoute: typeof AtlasMpsIiicAmbitionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiseaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atlas/mps-iiic/ambition': {
+      id: '/atlas/mps-iiic/ambition'
+      path: '/atlas/mps-iiic/ambition'
+      fullPath: '/atlas/mps-iiic/ambition'
+      preLoaderRoute: typeof AtlasMpsIiicAmbitionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -233,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   AtlasIdRoute: AtlasIdRoute,
   DiseaseIdRoute: DiseaseIdRoute,
+  AtlasMpsIiicAmbitionRoute: AtlasMpsIiicAmbitionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -86,6 +86,7 @@ function DiseasePage() {
         <span className="stage-badge">{partner.stage}</span>
         <div className="party-actions"><a href={`mailto:${partner.email}`}>{partner.email}</a><Button size="sm" variant="outline" onClick={() => selectPartner(partner)}><Mail size={14}/> Draft email</Button></div>
       </article>; })}</div>
+      {id === "mps-iiic" && <Button asChild className="steps-ambition-cta"><Link to="/atlas/mps-iiic/ambition">See the 10× path →</Link></Button>}
       <p className="steps-disclaimer">Public research contacts to discuss, not treatment recommendations or confirmed opportunities.</p>
     </>}
     <Sheet open={Boolean(selected)} onOpenChange={(o) => { if (!o) setSelectedId(""); }}><SheetContent side="right" className="outreach-sheet">{selected && <><SheetHeader><SheetTitle>Write to {selected.name}</SheetTitle><SheetDescription>Edit the message. Nothing is sent from the atlas.</SheetDescription></SheetHeader>
