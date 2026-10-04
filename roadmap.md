@@ -9,4 +9,5 @@
 - [x] Add account-saved, separate conversations for a chart-specific assistant (signed-in conversation flow awaits an account for live verification).
 - [x] Rework chart screen per comments; add clinician research upload; rename Priya to pharma scout.
 - [x] Apply annotated chart feedback: larger perspective selector, separate plain-language explanation, no duplicate next-steps tab, and dark-blue ordered actions.
+- [ ] Apply latest chart annotation: shorter header, larger map with legend below, test assistant mock, and chart accessibility.
 - [ ] Stage 3: Specialist lenses, faster route, list view and phone polish (awaiting stage 2 review).
