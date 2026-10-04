@@ -389,3 +389,43 @@ h1,h2,h3,p { margin-top: 0; } h1,h2,h3 { letter-spacing: 0; }
   .atlas-layout-v2 .network-stage { height: 520px; }
   .atlas-action-bar > *, .atlas-action-bar .atlas-assistant-launcher { flex-basis: 100%; }
 }
+
+/* Keep the sample map prominent while keys and accessible connection controls sit beneath it. */
+.atlas-page .site-header { height: 48px; padding-inline: clamp(16px, 3vw, 42px); gap: 22px; }
+.atlas-page .header-action { height: 34px; }
+.atlas-page .site-footer { min-height: 36px; }
+.atlas-layout-v2 { height: auto; min-height: calc(100dvh - 84px); overflow: visible; grid-template-columns: minmax(0,1fr) minmax(245px,300px); }
+.atlas-layout-v2 .atlas-toolbar { min-height: 68px; padding-block: 7px; }
+.atlas-layout-v2 .network-stage { flex: none; height: clamp(350px, calc(100dvh - 385px), 650px); }
+.atlas-layout-v2 .detail-panel { overflow: visible; }
+.atlas-layout-v2 .network-legend { flex-shrink: 0; justify-content: flex-start; padding: 9px 18px; gap: 8px 20px; }
+.chart-connection-list { flex-shrink: 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+.chart-connection-list summary { cursor: pointer; padding: 8px 18px; color: var(--primary); font-weight: 650; }
+.chart-connection-list summary:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+.chart-connection-list > div { max-height: 160px; overflow-y: auto; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); padding: 5px 14px 12px; gap: 2px; }
+.chart-connection-list button { height: auto; min-height: 44px; white-space: normal; text-align: left; flex-direction: column; align-items: flex-start; gap: 1px; font-size: 11px; }
+.chart-connection-list button[aria-pressed="true"] { background: var(--secondary); }
+.chart-connection-list small { font-size: 10px; color: var(--ink-soft); }
+.atlas-layout-v2 .graph-node:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; background: var(--background)!important; }
+.atlas-layout-v2 .graph-connection:focus-within .graph-edge { stroke-opacity: 1; stroke-width: 3px; }
+.atlas-layout-v2 .edge-explanation-top button { min-width: 36px; min-height: 36px; }
+.chat-demo-workspace { display: block; }
+.chat-demo-workspace .chat-main { height: 100%; }
+.chat-suggestions { display: flex; flex-wrap: wrap; gap: 7px; padding: 0 22px 6px; }
+.chat-suggestions button { height: auto; min-height: 40px; white-space: normal; text-align: left; font-size: 11px; }
+.evidence-drawer { width: min(100%,450px); max-width: none; height: 100%; overflow-y: auto; padding: 31px; background: var(--background); box-shadow: -15px 0 40px color-mix(in oklab,var(--foreground) 12%,transparent); }
+.evidence-drawer > h2 { font-size: 30px; margin: 23px 0 13px; }
+.evidence-drawer > p:first-of-type { margin-top: 20px; }
+@media (max-width: 850px) {
+  .atlas-layout-v2 { height: auto; min-height: 0; }
+  .atlas-layout-v2 .network-stage { min-height: 580px; }
+  .atlas-layout-v2 .detail-panel { overflow: visible; }
+}
+@media (max-width: 600px) {
+  .atlas-page .site-header { height: 48px; }
+  .atlas-layout-v2 .network-stage { height: 570px; min-height: 570px; }
+  .chart-connection-list > div { grid-template-columns: 1fr; }
+  .chat-suggestions { padding-inline: 12px; }
+  .atlas-layout-v2 .graph-node { width: 62px; }
+  .atlas-layout-v2 .node-name, .atlas-layout-v2 .node-name small { font-size: 9px; }
+}
