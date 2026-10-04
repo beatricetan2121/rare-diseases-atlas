@@ -59,6 +59,48 @@ export type Database = {
         }
         Relationships: []
       }
+      research_submissions: {
+        Row: {
+          condition_id: string
+          created_at: string
+          file_name: string
+          file_path: string
+          finding: string
+          gene: string
+          id: string
+          institution: string
+          status: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          condition_id: string
+          created_at?: string
+          file_name: string
+          file_path: string
+          finding: string
+          gene?: string
+          id?: string
+          institution?: string
+          status?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          condition_id?: string
+          created_at?: string
+          file_name?: string
+          file_path?: string
+          finding?: string
+          gene?: string
+          id?: string
+          institution?: string
+          status?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
